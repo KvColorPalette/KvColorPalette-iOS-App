@@ -11,7 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5ADA40002D1F257F0060DB60 /* kv-ios-color-pallet-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kv-ios-color-pallet-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ADA40002D1F257F0060DB60 /* KV Color Pallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KV Color Pallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADA40132D1F25DC0060DB60 /* kv-ios-color-pallet */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "kv-ios-color-pallet"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -48,7 +48,7 @@
 		5ADA40012D1F257F0060DB60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ADA40002D1F257F0060DB60 /* kv-ios-color-pallet-app.app */,
+				5ADA40002D1F257F0060DB60 /* KV Color Pallet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,9 +63,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5ADA3FFF2D1F257F0060DB60 /* kv-ios-color-pallet-app */ = {
+		5ADA3FFF2D1F257F0060DB60 /* KV Color Pallet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "kv-ios-color-pallet-app" */;
+			buildConfigurationList = 5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "KV Color Pallet" */;
 			buildPhases = (
 				5ADA3FFC2D1F257F0060DB60 /* Sources */,
 				5ADA3FFD2D1F257F0060DB60 /* Frameworks */,
@@ -78,12 +78,12 @@
 			fileSystemSynchronizedGroups = (
 				5ADA40022D1F257F0060DB60 /* kv-ios-color-pallet-app */,
 			);
-			name = "kv-ios-color-pallet-app";
+			name = "KV Color Pallet";
 			packageProductDependencies = (
 				5ADA40272D2313820060DB60 /* kv-ios-color-pallet */,
 			);
 			productName = "kv-ios-color-pallet-app";
-			productReference = 5ADA40002D1F257F0060DB60 /* kv-ios-color-pallet-app.app */;
+			productReference = 5ADA40002D1F257F0060DB60 /* KV Color Pallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5ADA3FFF2D1F257F0060DB60 /* kv-ios-color-pallet-app */,
+				5ADA3FFF2D1F257F0060DB60 /* KV Color Pallet */,
 			);
 		};
 /* End PBXProject section */
@@ -336,7 +336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "kv-ios-color-pallet-app" */ = {
+		5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "KV Color Pallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ADA40112D1F25810060DB60 /* Debug */,
