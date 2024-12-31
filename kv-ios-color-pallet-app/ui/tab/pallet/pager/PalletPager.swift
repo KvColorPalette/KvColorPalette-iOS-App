@@ -50,7 +50,7 @@ struct ColorPalletRow: View {
     init(givenColor: KvColor, selectedColor: Binding<Color>) {
         self.givenColor = givenColor
         _selectedColor = selectedColor
-        let colors = KvColorPallet().generateColorPallet(givenColor: self.givenColor)
+        let colors = KvColorPallet.instance!.generateColorPallet(givenColor: self.givenColor)
         colors.forEach { color in
             colorList.append(ColorItem(color: color))
         }

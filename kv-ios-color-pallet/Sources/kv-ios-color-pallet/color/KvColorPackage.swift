@@ -11,6 +11,9 @@ public enum ColorPackageType {
     case PK_0, PK_50, PK_100, PK_200, PK_300, PK_400, PK_500, PK_600, PK_700
 }
 
+/**
+ * Material colors 500
+ */
 public class MatPackage: ColorPackageBase {
     
     public override init() {}
@@ -54,6 +57,10 @@ public class MatPackage: ColorPackageBase {
     }
 }
 
+/**
+ * Material colors 700
+ * This is for internal usage only.
+ */
 class Mat700Package: ColorPackageBase {
     
     let matRed = KvColor(colorName: "MatRed", colorPackage: ColorPackageType.PK_700, color: Color("mat.700.red", bundle: .module))
@@ -93,6 +100,10 @@ class Mat700Package: ColorPackageBase {
     }
 }
 
+/**
+ * Material colors 600
+ * This is for internal usage only.
+ */
 class Mat600Package: ColorPackageBase {
     
     let matRed = KvColor(colorName: "MatRed", colorPackage: ColorPackageType.PK_600, color: Color("mat.600.red", bundle: .module))
@@ -132,6 +143,10 @@ class Mat600Package: ColorPackageBase {
     }
 }
 
+/**
+ * Material colors 400
+ * This is for internal usage only.
+ */
 class Mat400Package: ColorPackageBase {
     
     let matRed = KvColor(colorName: "MatRed", colorPackage: ColorPackageType.PK_400, color: Color("mat.400.red", bundle: .module))
@@ -171,6 +186,10 @@ class Mat400Package: ColorPackageBase {
     }
 }
 
+/**
+ * Material colors 300
+ * This is for internal usage only.
+ */
 class Mat300Package: ColorPackageBase {
     
     let matRed = KvColor(colorName: "MatRed", colorPackage: ColorPackageType.PK_300, color: Color("mat.300.red", bundle: .module))
@@ -210,6 +229,10 @@ class Mat300Package: ColorPackageBase {
     }
 }
 
+/**
+ * Material colors 200
+ * This is for internal usage only.
+ */
 class Mat200Package: ColorPackageBase {
     
     let matRed = KvColor(colorName: "MatRed", colorPackage: ColorPackageType.PK_200, color: Color("mat.200.red", bundle: .module))
@@ -249,6 +272,10 @@ class Mat200Package: ColorPackageBase {
     }
 }
 
+/**
+ * Material colors 100
+ * This is for internal usage only.
+ */
 class Mat100Package: ColorPackageBase {
     
     let matRed = KvColor(colorName: "MatRed", colorPackage: ColorPackageType.PK_100, color: Color("mat.100.red", bundle: .module))
@@ -288,6 +315,10 @@ class Mat100Package: ColorPackageBase {
     }
 }
 
+/**
+ * Material colors 50
+ * This is for internal usage only.
+ */
 class Mat50Package: ColorPackageBase {
     
     let matRed = KvColor(colorName: "MatRed", colorPackage: ColorPackageType.PK_50, color: Color("mat.50.red", bundle: .module))

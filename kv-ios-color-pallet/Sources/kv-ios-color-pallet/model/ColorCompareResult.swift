@@ -7,6 +7,9 @@
 import Foundation
 import SwiftUICore
 
+/**
+* Result of the color comparison functionality in kv-color-pallet library.
+*/
 public struct ColorCompareResult {
     public var isExactMatch: Bool = false
     public var colorDistance: Float = 0.0

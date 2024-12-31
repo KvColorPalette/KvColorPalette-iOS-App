@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUICore
 
+/**
+* Color object that holds,
+* name, package, hex, hex+alpha to the regular `Color` object
+*
+* @see Color
+*/
 public struct KvColor {
     public var colorName: String
     public var colorPackage: ColorPackageType = ColorPackageType.PK_0
@@ -39,6 +45,12 @@ public struct KvColor {
         self.colorHexWithAlpha = colorHexWithAlpha
     }
     
+    /**
+    * Change the alpha of the color
+    *
+    * @param modifyAlpha The alpha value to be modified
+    * @return The modified color
+    */
     public func alphaChange(modifyAlpha: Double) -> KvColor {
         if modifyAlpha == 1 {
             return self

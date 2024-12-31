@@ -8,6 +8,11 @@ import SwiftUICore
 import UIKit
 
 internal extension Color {
+    /**
+     * Accept hex value to generate color
+     * @param hex [UInt] interger value of hex
+     * @param alpha [Double] double value of opacity of the color
+     */
     init(hex: UInt, alpha: Double = 1) {
         self.init(
             .sRGB,
@@ -18,8 +23,10 @@ internal extension Color {
         )
     }
     
+    /**
+     * Seperate rgb (red, green, blue) colors of given color's components
+     */
     var rgb: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
-        //let uiColor = UIColor(self)
         typealias uiColor = UIColor
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -33,6 +40,9 @@ internal extension Color {
         return (red, green, blue, opasity)
     }
     
+    /**
+     * Return hex value of the color
+     */
     var hex: String {
         String(
             format: "#%02x%02x%02x",
@@ -42,6 +52,9 @@ internal extension Color {
         )
     }
     
+    /**
+     * Return hex value with alpha of the color
+     */
     var hexWithAlpha: String {
         String(
             format: "#%02x%02x%02x%02x",

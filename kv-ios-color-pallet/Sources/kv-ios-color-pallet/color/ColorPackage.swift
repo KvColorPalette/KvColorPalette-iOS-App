@@ -14,10 +14,22 @@ protocol ColorPackageProtocol {
 
 public class ColorPackageBase: ColorPackageProtocol {
     
+    /**
+    * Get a list of colors from the color package.
+    *
+    * @return A list of colors.
+    */
     func getColorList() -> [KvColor] {
         return []
     }
     
+    /**
+    * Compare a given color with the colors in the color package.
+    *
+    * @param givenColor The color to compare.
+    * @return A color compare result. This include the most matching color, distance to the
+    * most matching color and the matched color is exact to the given color
+    */
     public func compareColor(givenColor: Color) -> ColorCompareResult {
         var closestColor = MatPackage().matWhite
         var shortestDistance: Float? = nil
@@ -54,6 +66,12 @@ public class ColorPackageBase: ColorPackageProtocol {
         }
     }
     
+    /**
+    * Get a color from the color package using color name.
+    *
+    * @param colorName The name of the color.
+    * @return A color.
+    */
     public func getColor(colorName: String) -> KvColor {
         return getColorList().first { $0.colorName == colorName } ?? MatPackage().matWhite
     }
