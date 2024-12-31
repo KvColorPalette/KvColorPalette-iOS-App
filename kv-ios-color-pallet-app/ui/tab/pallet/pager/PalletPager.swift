@@ -9,6 +9,8 @@ import kv_ios_color_pallet
 
 public struct PalletPager: View {
    
+    @State var selectedColor: Color = .white
+    
     public var body: some View {
         VStack {
             Text("Color Pallet")
@@ -16,34 +18,38 @@ public struct PalletPager: View {
             let matPackage = MatPackage()
             
             VStack {
-                ColorPalletRow(givenColor: matPackage.matRed)
-                ColorPalletRow(givenColor: matPackage.matRose)
-                ColorPalletRow(givenColor: matPackage.matLPurple)
-                ColorPalletRow(givenColor: matPackage.matDPurple)
-                ColorPalletRow(givenColor: matPackage.matDBlue)
-                ColorPalletRow(givenColor: matPackage.matLBlue)
-                ColorPalletRow(givenColor: matPackage.matLLBlue)
-                ColorPalletRow(givenColor: matPackage.matLCyan)
-                ColorPalletRow(givenColor: matPackage.matDCyan)
-                ColorPalletRow(givenColor: matPackage.matDGreen)
-                ColorPalletRow(givenColor: matPackage.matLGreen)
-                ColorPalletRow(givenColor: matPackage.matLLGreen)
-                ColorPalletRow(givenColor: matPackage.matYellow)
-                ColorPalletRow(givenColor: matPackage.matGold)
-                ColorPalletRow(givenColor: matPackage.matOrange)
+                ColorPalletRow(givenColor: matPackage.matRed, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matRose, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matLPurple, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matDPurple, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matDBlue, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matLBlue, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matLLBlue, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matLCyan, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matDCyan, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matDGreen, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matLGreen, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matLLGreen, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matYellow, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matGold, selectedColor: $selectedColor)
+                ColorPalletRow(givenColor: matPackage.matOrange, selectedColor: $selectedColor)
             }
             .padding()
+            
+            ColorDetailRow(selectedColor: selectedColor)
         }
     }
 }
 
 struct ColorPalletRow: View {
     
+    @Binding var selectedColor: Color
     private var givenColor: KvColor
     private var colorList: [ColorItem] = []
     
-    init(givenColor: KvColor) {
+    init(givenColor: KvColor, selectedColor: Binding<Color>) {
         self.givenColor = givenColor
+        _selectedColor = selectedColor
         let colors = KvColorPallet().generateColorPallet(givenColor: self.givenColor)
         colors.forEach { color in
             colorList.append(ColorItem(color: color))
@@ -53,7 +59,14 @@ struct ColorPalletRow: View {
     var body: some View {
         HStack {
             ForEach(colorList, id: \.id) { colorItem in
-                ColorBox(givenColor: colorItem.color)
+                ColorBox(
+                    givenColor: colorItem.color,
+                    selectedColor: selectedColor,
+                    onSelect: { pickedColor in
+                        selectedColor = pickedColor
+                    }
+                )
+                .padding(-4)
             }
         }
     }
