@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		5ADA40282D2313820060DB60 /* kv-ios-color-pallet in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADA40272D2313820060DB60 /* kv-ios-color-pallet */; };
+		5ADA403A2D24AB980060DB60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA40392D24AB980060DB60 /* README.md */; };
+		5ADA403C2D24ABF00060DB60 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA403B2D24ABF00060DB60 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5ADA40002D1F257F0060DB60 /* KV Color Pallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KV Color Pallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADA40132D1F25DC0060DB60 /* kv-ios-color-pallet */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "kv-ios-color-pallet"; sourceTree = SOURCE_ROOT; };
+		5ADA40392D24AB980060DB60 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5ADA403B2D24ABF00060DB60 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +42,8 @@
 		5ADA3FF72D1F257F0060DB60 = {
 			isa = PBXGroup;
 			children = (
+				5ADA403B2D24ABF00060DB60 /* LICENSE */,
+				5ADA40392D24AB980060DB60 /* README.md */,
 				5ADA40022D1F257F0060DB60 /* kv-ios-color-pallet-app */,
 				5ADA40132D1F25DC0060DB60 /* kv-ios-color-pallet */,
 				5ADA40262D2313820060DB60 /* Frameworks */,
@@ -125,6 +131,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADA403A2D24AB980060DB60 /* README.md in Resources */,
+				5ADA403C2D24ABF00060DB60 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
