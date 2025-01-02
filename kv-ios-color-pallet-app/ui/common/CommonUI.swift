@@ -5,7 +5,7 @@
 //  Created by Kavimal Wijewardana on 12/30/24.
 //
 import SwiftUI
-import kv_ios_color_pallet
+import KvColorPallet
 
 public struct ColorBox: View {
     
@@ -59,18 +59,32 @@ public struct ColorDetailRow: View {
             VStack {
                 HStack {
                     Text("HEX: ")
-                    Text("\(ColorUtil.getHex(color: selectedColor))")
+                    Spacer()
                 }
                 
                 HStack {
                     Text("HEX with Alpha: ")
+                    Spacer()
+                }
+            }
+            
+            VStack {
+                HStack {
+                    Text("\(ColorUtil.getHex(color: selectedColor))")
+                    Spacer()
+                }
+                
+                HStack {
                     Text("\(ColorUtil.getHexWithAlpha(color: selectedColor))")
+                    Spacer()
                 }
             }
         }
-        .padding(8)
+        .padding(5)
         .background(Color.white)
-        //.shadow(radius: 3)
+        .cornerRadius(5)
+        .shadow(radius: 5)
+        .padding([.leading, .trailing])
     }
 }
 

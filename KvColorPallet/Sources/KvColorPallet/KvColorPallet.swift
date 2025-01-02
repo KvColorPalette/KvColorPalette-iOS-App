@@ -69,7 +69,7 @@ public class KvColorPallet {
      * @param givenColor The color to generate the theme color pallet for.
      * @return A theme color pallet.
      */
-    func generateThemeColorPallet(givenColor: KvColor) -> AppThemePallet {
+    public func generateThemeColorPallet(givenColor: KvColor) -> AppThemePallet {
         return ThemeGenUtil.generateThemeColorSet(givenColor: givenColor)
     }
 }

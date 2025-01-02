@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import kv_ios_color_pallet
+import KvColorPallet
 
 struct ColorPalletTab: View {
     

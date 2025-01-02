@@ -5,7 +5,7 @@
 //  Created by Kavimal Wijewardana on 12/30/24.
 //
 import SwiftUI
-import kv_ios_color_pallet
+import KvColorPallet
 
 public struct AlphaPalletPager: View {
     
@@ -13,30 +13,45 @@ public struct AlphaPalletPager: View {
     
     public var body: some View {
         VStack {
-            Text("Alpha Pallet")
+            HStack {
+                Text("Alpha Pallet")
+                    .font(.system(size: 40, weight: .semibold))
+                    .foregroundColor(.black)
+                
+                Spacer()
+            }
+            .padding([.leading, .trailing], 10)
             
             let matPackage = MatPackage()
             
-            VStack {
-                AlphaPalletColorRow(givenColor: matPackage.matRed, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matRose, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matLPurple, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matDPurple, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matDBlue, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matLBlue, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matLLBlue, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matLCyan, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matDCyan, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matDGreen, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matLGreen, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matLLGreen, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matYellow, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matGold, selectedColor: $selectedColor)
-                AlphaPalletColorRow(givenColor: matPackage.matOrange, selectedColor: $selectedColor)
+            HStack {
+                VStack {
+                    AlphaPalletColorRow(givenColor: matPackage.matRed, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matRose, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matLPurple, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matDPurple, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matDBlue, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matLBlue, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matLLBlue, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matLCyan, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matDCyan, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matDGreen, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matLGreen, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matLLGreen, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matYellow, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matGold, selectedColor: $selectedColor)
+                    AlphaPalletColorRow(givenColor: matPackage.matOrange, selectedColor: $selectedColor)
+                }
+                .padding()
+                
+                Spacer()
             }
-            .padding()
+            .padding([.leading, .trailing], 10)
+            .padding(.top, -15)
             
             ColorDetailRow(selectedColor: selectedColor)
+            
+            Spacer()
         }
     }
 }
@@ -50,7 +65,7 @@ struct AlphaPalletColorRow: View {
     init(givenColor: KvColor, selectedColor: Binding<Color>) {
         self.givenColor = givenColor
         _selectedColor = selectedColor
-        let colors = KvColorPallet.instance!.generateAlphaColorPallet(givenColor: self.givenColor.color)
+        let colors = KvColorPallet().generateAlphaColorPallet(givenColor: self.givenColor.color)
         colors.forEach { color in
             colorList.append(ColorItem(color: color))
         }

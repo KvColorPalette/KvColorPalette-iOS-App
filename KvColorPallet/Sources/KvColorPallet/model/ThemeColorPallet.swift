@@ -9,8 +9,8 @@ import Foundation
 import SwiftUICore
 
 public struct AppThemePallet {
-    let light: ThemeColorPallet
-    let dark: ThemeColorPallet
+    public let light: ThemeColorPallet
+    public let dark: ThemeColorPallet
     
     public init(light: ThemeColorPallet, dark: ThemeColorPallet) {
         self.light = light
@@ -19,12 +19,12 @@ public struct AppThemePallet {
 }
 
 public struct ThemeColorPallet {
-    let primary: Color
-    let secondary: Color
-    let tertiary: Color
-    let background: Color
-    let onPrimary: Color
-    let onSecondary: Color
+    public let primary: Color
+    public let secondary: Color
+    public let tertiary: Color
+    public let background: Color
+    public let onPrimary: Color
+    public let onSecondary: Color
     
     public init(primary: Color, secondary: Color, tertiary: Color, background: Color, onPrimary: Color, onSecondary: Color) {
         self.primary = primary
