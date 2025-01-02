@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A6595092D273F0F0089A467 /* KvColorPallet-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6595082D273F0F0089A467 /* KvColorPallet-iOS */; };
 		5ADA403A2D24AB980060DB60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA40392D24AB980060DB60 /* README.md */; };
 		5ADA403C2D24ABF00060DB60 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA403B2D24ABF00060DB60 /* LICENSE */; };
-		5ADA41262D2737E60060DB60 /* KvColorPallet-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADA41252D2737E60060DB60 /* KvColorPallet-iOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ADA41262D2737E60060DB60 /* KvColorPallet-iOS in Frameworks */,
+				5A6595092D273F0F0089A467 /* KvColorPallet-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,8 +84,7 @@
 			);
 			name = "KV Color Pallet";
 			packageProductDependencies = (
-				5ADA407E2D2635AB0060DB60 /* KvColorPallet */,
-				5ADA41252D2737E60060DB60 /* KvColorPallet-iOS */,
+				5A6595082D273F0F0089A467 /* KvColorPallet-iOS */,
 			);
 			productName = "kv-ios-color-pallet-app";
 			productReference = 5ADA40002D1F257F0060DB60 /* KV Color Pallet.app */;
@@ -116,7 +115,7 @@
 			mainGroup = 5ADA3FF72D1F257F0060DB60;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5ADA41242D2737E60060DB60 /* XCRemoteSwiftPackageReference "KvColorPallet-iOS" */,
+				5ADA41282D273E130060DB60 /* XCLocalSwiftPackageReference "../KvColorPallet-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5ADA40012D1F257F0060DB60 /* Products */;
@@ -357,25 +356,17 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		5ADA41242D2737E60060DB60 /* XCRemoteSwiftPackageReference "KvColorPallet-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/KvColorPallet/KvColorPallet-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		5ADA41282D273E130060DB60 /* XCLocalSwiftPackageReference "../KvColorPallet-iOS" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../KvColorPallet-iOS";
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5ADA407E2D2635AB0060DB60 /* KvColorPallet */ = {
+		5A6595082D273F0F0089A467 /* KvColorPallet-iOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = KvColorPallet;
-		};
-		5ADA41252D2737E60060DB60 /* KvColorPallet-iOS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5ADA41242D2737E60060DB60 /* XCRemoteSwiftPackageReference "KvColorPallet-iOS" */;
+			package = 5ADA41282D273E130060DB60 /* XCLocalSwiftPackageReference "../KvColorPallet-iOS" */;
 			productName = "KvColorPallet-iOS";
 		};
 /* End XCSwiftPackageProductDependency section */
