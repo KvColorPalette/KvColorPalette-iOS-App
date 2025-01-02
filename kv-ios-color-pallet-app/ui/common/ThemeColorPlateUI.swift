@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import KvColorPallet
+import KvColorPallet_iOS
 
 public struct ThemeColorPlate: View {
     

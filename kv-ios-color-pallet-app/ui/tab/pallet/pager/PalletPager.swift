@@ -5,7 +5,7 @@
 //  Created by Kavimal Wijewardana on 12/30/24.
 //
 import SwiftUI
-import KvColorPallet
+import KvColorPallet_iOS
 
 public struct PalletPager: View {
    

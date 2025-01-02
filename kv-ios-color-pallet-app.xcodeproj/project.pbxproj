@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		5ADA403A2D24AB980060DB60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA40392D24AB980060DB60 /* README.md */; };
 		5ADA403C2D24ABF00060DB60 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA403B2D24ABF00060DB60 /* LICENSE */; };
-		5ADA407F2D2635AB0060DB60 /* KvColorPallet in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADA407E2D2635AB0060DB60 /* KvColorPallet */; };
+		5ADA41262D2737E60060DB60 /* KvColorPallet-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADA41252D2737E60060DB60 /* KvColorPallet-iOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5ADA40002D1F257F0060DB60 /* KV Color Pallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KV Color Pallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADA40392D24AB980060DB60 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5ADA403B2D24ABF00060DB60 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		5ADA407D2D2635850060DB60 /* KvColorPallet */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = KvColorPallet; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ADA407F2D2635AB0060DB60 /* KvColorPallet in Frameworks */,
+				5ADA41262D2737E60060DB60 /* KvColorPallet-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +44,6 @@
 				5ADA403B2D24ABF00060DB60 /* LICENSE */,
 				5ADA40392D24AB980060DB60 /* README.md */,
 				5ADA40022D1F257F0060DB60 /* kv-ios-color-pallet-app */,
-				5ADA407D2D2635850060DB60 /* KvColorPallet */,
 				5ADA40262D2313820060DB60 /* Frameworks */,
 				5ADA40012D1F257F0060DB60 /* Products */,
 			);
@@ -87,6 +85,7 @@
 			name = "KV Color Pallet";
 			packageProductDependencies = (
 				5ADA407E2D2635AB0060DB60 /* KvColorPallet */,
+				5ADA41252D2737E60060DB60 /* KvColorPallet-iOS */,
 			);
 			productName = "kv-ios-color-pallet-app";
 			productReference = 5ADA40002D1F257F0060DB60 /* KV Color Pallet.app */;
@@ -116,6 +115,9 @@
 			);
 			mainGroup = 5ADA3FF72D1F257F0060DB60;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5ADA41242D2737E60060DB60 /* XCRemoteSwiftPackageReference "KvColorPallet-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5ADA40012D1F257F0060DB60 /* Products */;
 			projectDirPath = "";
@@ -355,10 +357,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		5ADA41242D2737E60060DB60 /* XCRemoteSwiftPackageReference "KvColorPallet-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KvColorPallet/KvColorPallet-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		5ADA407E2D2635AB0060DB60 /* KvColorPallet */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KvColorPallet;
+		};
+		5ADA41252D2737E60060DB60 /* KvColorPallet-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5ADA41242D2737E60060DB60 /* XCRemoteSwiftPackageReference "KvColorPallet-iOS" */;
+			productName = "KvColorPallet-iOS";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
