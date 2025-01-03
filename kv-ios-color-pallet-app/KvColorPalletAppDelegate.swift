@@ -14,7 +14,7 @@ class KvColorPalletAppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        KvColorPallet.initialize(givenColor: MatPackage().matRed.color)
+        KvColorPallet.initialize(basicColor: MatPackage().matRed.color)
         
         return true
     }
