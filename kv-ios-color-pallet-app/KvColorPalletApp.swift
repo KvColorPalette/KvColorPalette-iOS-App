@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct KvColorPalletApp: App {
+    
+    @UIApplicationDelegateAdaptor(KvColorPalletAppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             MainTabView()

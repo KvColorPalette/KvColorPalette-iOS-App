@@ -21,11 +21,11 @@ struct ThemeColorGenTab: View {
             }
             .padding([.leading, .trailing], 10)
             
-            let colorPalletOne = KvColorPallet().generateThemeColorPallet(givenColor: MatPackage().matRed)
+            let colorPalletOne = KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matRed)
             ThemeColorPlate(colorPalette: colorPalletOne)
                 .padding(.top, 10)
             
-            let colorPalletTwo = KvColorPallet().generateThemeColorPallet(givenColor: MatPackage().matGold)
+            let colorPalletTwo = KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matGold)
             ThemeColorPlate(colorPalette: colorPalletTwo)
                 .padding(.top, 10)
             
