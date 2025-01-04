@@ -65,7 +65,7 @@ struct AlphaPalletColorRow: View {
     init(givenColor: KvColor, selectedColor: Binding<Color>) {
         self.givenColor = givenColor
         _selectedColor = selectedColor
-        let colors = KvColorPallet().generateAlphaColorPallet(givenColor: self.givenColor.color)
+        let colors = KvColorPallet.instance.generateAlphaColorPallet(givenColor: self.givenColor.color)
         colors.forEach { color in
             colorList.append(ColorItem(color: color))
         }
