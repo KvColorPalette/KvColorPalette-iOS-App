@@ -16,7 +16,6 @@ public struct AlphaPalletPager: View {
             HStack {
                 Text("Alpha Pallet")
                     .font(.system(size: 40, weight: .semibold))
-                    .foregroundColor(.black)
                 
                 Spacer()
             }

@@ -7,6 +7,13 @@
 import SwiftUI
 import KvColorPallet_iOS
 
+public struct AppBackground: View {
+    public var body: some View {
+        Color.themePallet.background
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
 public struct ColorBox: View {
     
     @State private var showBorder = false
@@ -81,9 +88,9 @@ public struct ColorDetailRow: View {
             }
         }
         .padding(5)
-        .background(Color.white)
+        .background(Color.themePallet.tertiary)
         .cornerRadius(5)
-        .shadow(radius: 5)
+        .shadow(color: Color.themePallet.shadow, radius: 5)
         .padding([.leading, .trailing])
     }
 }
