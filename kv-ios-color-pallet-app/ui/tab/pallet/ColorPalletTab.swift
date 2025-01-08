@@ -41,6 +41,22 @@ struct ColorPalletTab: View {
                     dotAppearance.currentPageIndicatorTintColor = UIColor(.black)
                     dotAppearance.pageIndicatorTintColor = UIColor(.gray)
                 }
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text("Try it out!")
+                        .font(.system(size: 16, weight: .light))
+                        .foregroundColor(Color.themePallet.onPrimary)
+                        .frame(maxWidth: .infinity, maxHeight: 10)
+                        .padding()
+                        .background(Color.themePallet.primary)
+                        .cornerRadius(10)
+                })
+                .padding(.top, -20)
+                .padding([.trailing, .leading])
+                
+                Spacer()
             }
         }
     }
