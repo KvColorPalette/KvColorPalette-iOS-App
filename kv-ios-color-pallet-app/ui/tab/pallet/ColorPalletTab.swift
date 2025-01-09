@@ -28,6 +28,10 @@ struct ColorPalletTab: View {
                         VStack {
                             if pageItem.tag == 1 {
                                 PalletPager()
+                            } else if pageItem.tag == 2 {
+                                BrightnessPalletPager()
+                            } else if pageItem.tag == 3 {
+                                SaturationPalletPager()
                             } else {
                                 AlphaPalletPager()
                             }
