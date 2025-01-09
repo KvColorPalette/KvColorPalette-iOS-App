@@ -19,7 +19,7 @@ public struct ThemeColorPlate: View {
     public var body: some View {
         HStack {
             Rectangle()
-                .fill(colorPallet.light.primary)
+                .fill(colorPallet.light.base)
                 .frame(width: 50, height: 200)
                 .overlay(
                     VStack {
@@ -38,6 +38,7 @@ public struct ThemeColorPlate: View {
             VStack {
                 HStack {
                     Text("Light Theme")
+                        .foregroundColor(.black)
                     Spacer()
                 }
                 
@@ -52,6 +53,7 @@ public struct ThemeColorPlate: View {
                 
                 HStack {
                     Text("Dark Theme")
+                        .foregroundColor(.black)
                     Spacer()
                 }
                 

@@ -19,24 +19,44 @@ struct ColorPalletTab: View {
     }
     
     var body: some View {
-        VStack {
-            TabView(selection: $pageIndex, content: {
-                ForEach(pages) { pageItem in
-                    VStack {
-                        if pageItem.tag == 1 {
-                            PalletPager()
-                        } else {
-                            AlphaPalletPager()
+        ZStack {
+            AppBackground()
+            
+            VStack {
+                TabView(selection: $pageIndex, content: {
+                    ForEach(pages) { pageItem in
+                        VStack {
+                            if pageItem.tag == 1 {
+                                PalletPager()
+                            } else {
+                                AlphaPalletPager()
+                            }
                         }
+                        .tag(pageItem.tag)
                     }
-                    .tag(pageItem.tag)
+                })
+                .tabViewStyle(.page) // Enable page-style swipe
+                .animation(.easeInOut, value: pageIndex) // Smooth transition animation
+                .onAppear {
+                    dotAppearance.currentPageIndicatorTintColor = UIColor(.black)
+                    dotAppearance.pageIndicatorTintColor = UIColor(.gray)
                 }
-            })
-            .tabViewStyle(.page) // Enable page-style swipe
-            .animation(.easeInOut, value: pageIndex) // Smooth transition animation
-            .onAppear {
-                dotAppearance.currentPageIndicatorTintColor = UIColor(.black)
-                dotAppearance.pageIndicatorTintColor = UIColor(.gray)
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text("Try it out!")
+                        .font(.system(size: 16, weight: .light))
+                        .foregroundColor(Color.themePallet.onPrimary)
+                        .frame(maxWidth: .infinity, maxHeight: 10)
+                        .padding()
+                        .background(Color.themePallet.primary)
+                        .cornerRadius(10)
+                })
+                .padding(.top, -20)
+                .padding([.trailing, .leading])
+                
+                Spacer()
             }
         }
     }

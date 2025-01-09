@@ -1,4 +1,4 @@
-# KV iOS Color Pallet App
+# KV Color Pallet - iOS: Reference App
 
 This is a sample demostration app of consuming KvColorPallet-iOS swift package. This app will show case how developer can use
 KvColorPallet-iOS swift package. 

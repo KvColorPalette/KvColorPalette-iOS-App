@@ -16,7 +16,6 @@ public struct PalletPager: View {
             HStack {
                 Text("Color Pallet")
                     .font(.system(size: 40, weight: .semibold))
-                    .foregroundColor(.black)
                 
                 Spacer()
             }
