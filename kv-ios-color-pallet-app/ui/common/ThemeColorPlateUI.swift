@@ -46,6 +46,7 @@ public struct ThemeColorPlate: View {
                     ColorCircle(color: colorPallet.light.primary, colorLetter: "P")
                     ColorCircle(color: colorPallet.light.secondary, colorLetter: "S")
                     ColorCircle(color: colorPallet.light.tertiary, colorLetter: "T")
+                    ColorCircle(color: colorPallet.light.quaternary, colorLetter: "Q")
                     ColorCircle(color: colorPallet.light.background, colorLetter: "B", letterColor: .black)
                     
                     Spacer()
@@ -61,6 +62,7 @@ public struct ThemeColorPlate: View {
                     ColorCircle(color: colorPallet.dark.primary, colorLetter: "P")
                     ColorCircle(color: colorPallet.dark.secondary, colorLetter: "S", letterColor: .black)
                     ColorCircle(color: colorPallet.dark.tertiary, colorLetter: "T")
+                    ColorCircle(color: colorPallet.dark.quaternary, colorLetter: "Q", letterColor: .black)
                     ColorCircle(color: colorPallet.dark.background, colorLetter: "B")
                     
                     Spacer()
