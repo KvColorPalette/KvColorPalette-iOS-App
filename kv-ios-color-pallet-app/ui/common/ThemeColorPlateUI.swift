@@ -96,10 +96,14 @@ struct ColorCircle: View {
     var body: some View {
         Circle()
             .fill(color)
-            .frame(width: 50, height: 50)
+            .frame(width: 45, height: 45)
             .overlay {
                 Text(colorLetter)
                     .foregroundColor(letterColor)
             }
     }
+}
+
+#Preview {
+    ThemeColorPlate(colorPalette: KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matLBlue.color))
 }

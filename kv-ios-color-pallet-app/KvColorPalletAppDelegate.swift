@@ -16,7 +16,7 @@ class KvColorPalletAppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Initiate the KvColorPallet-iOS with color `Green` as base color
-        KvColorPallet.initialize(basicColor: MatPackage().matDGreen)
+        KvColorPallet.initialize(basicColor: MatPackage().matDGreen.color)
         
         return true
     }

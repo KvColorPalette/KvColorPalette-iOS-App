@@ -38,9 +38,13 @@ struct ThemeColorGenTab: View {
                         ThemeColorPlate(colorPalette: colorPalletThree)
                             .padding(.top, 10)
                         
-                        /*let colorPalletFour = KvColorPallet.instance.generateThemeColorPallet(givenColor: Color.brown)
+                        let colorPalletFour = KvColorPallet.instance.generateThemeColorPallet(givenColor: Color.brown)
                         ThemeColorPlate(colorPalette: colorPalletFour)
-                            .padding(.top, 10)*/
+                            .padding(.top, 10)
+                        
+                        let colorPalletFive = KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matLBlue.color)
+                        ThemeColorPlate(colorPalette: colorPalletFive)
+                            .padding(.top, 10)
                         
                         Button(action: {
                             
