@@ -1,25 +1,25 @@
 //
 //  ThemeColorPlateUI.swift
-//  KV Color Pallet
+//  KV Color Palette
 //
 //  Created by Kavimal Wijewardana on 1/1/25.
 //
 
 import SwiftUI
-import KvColorPallet_iOS
+import KvColorPalette_iOS
 
 public struct ThemeColorPlate: View {
     
-    private var colorPallet: AppThemePallet
+    private var colorPalette: AppThemePalette
     
-    init(colorPalette: AppThemePallet) {
-        self.colorPallet = colorPalette
+    init(colorPalette: AppThemePalette) {
+        self.colorPalette = colorPalette
     }
     
     public var body: some View {
         HStack {
             Rectangle()
-                .fill(colorPallet.light.base)
+                .fill(colorPalette.light.base)
                 .frame(width: 50, height: 200)
                 .overlay(
                     VStack {
@@ -43,10 +43,11 @@ public struct ThemeColorPlate: View {
                 }
                 
                 HStack {
-                    ColorCircle(color: colorPallet.light.primary, colorLetter: "P")
-                    ColorCircle(color: colorPallet.light.secondary, colorLetter: "S")
-                    ColorCircle(color: colorPallet.light.tertiary, colorLetter: "T")
-                    ColorCircle(color: colorPallet.light.background, colorLetter: "B", letterColor: .black)
+                    ColorCircle(color: colorPalette.light.primary, colorLetter: "P")
+                    ColorCircle(color: colorPalette.light.secondary, colorLetter: "S")
+                    ColorCircle(color: colorPalette.light.tertiary, colorLetter: "T")
+                    ColorCircle(color: colorPalette.light.quaternary, colorLetter: "Q")
+                    ColorCircle(color: colorPalette.light.background, colorLetter: "B", letterColor: .black)
                     
                     Spacer()
                 }
@@ -58,10 +59,11 @@ public struct ThemeColorPlate: View {
                 }
                 
                 HStack {
-                    ColorCircle(color: colorPallet.dark.primary, colorLetter: "P")
-                    ColorCircle(color: colorPallet.dark.secondary, colorLetter: "S", letterColor: .black)
-                    ColorCircle(color: colorPallet.dark.tertiary, colorLetter: "T")
-                    ColorCircle(color: colorPallet.dark.background, colorLetter: "B")
+                    ColorCircle(color: colorPalette.dark.primary, colorLetter: "P")
+                    ColorCircle(color: colorPalette.dark.secondary, colorLetter: "S", letterColor: .black)
+                    ColorCircle(color: colorPalette.dark.tertiary, colorLetter: "T")
+                    ColorCircle(color: colorPalette.dark.quaternary, colorLetter: "Q", letterColor: .black)
+                    ColorCircle(color: colorPalette.dark.background, colorLetter: "B")
                     
                     Spacer()
                 }
@@ -94,10 +96,14 @@ struct ColorCircle: View {
     var body: some View {
         Circle()
             .fill(color)
-            .frame(width: 50, height: 50)
+            .frame(width: 45, height: 45)
             .overlay {
                 Text(colorLetter)
                     .foregroundColor(letterColor)
             }
     }
+}
+
+#Preview {
+    ThemeColorPlate(colorPalette: KvColorPalette.instance.generateThemeColorPalette(givenColor: MatPackage().matLBlue.color))
 }

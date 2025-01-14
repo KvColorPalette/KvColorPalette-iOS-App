@@ -1,12 +1,12 @@
 //
 //  ThemeColorGenTab.swift
-//  kv-ios-color-pallet-app
+//  KV Color Palette
 //
 //  Created by Kavimal Wijewardana on 12/27/24.
 //
 
 import SwiftUI
-import KvColorPallet_iOS
+import KvColorPalette_iOS
 
 struct ThemeColorGenTab: View {
     
@@ -16,7 +16,7 @@ struct ThemeColorGenTab: View {
             
             VStack {
                 HStack {
-                    Text("Theme Color Pallet")
+                    Text("Theme Color Palette")
                         .font(.system(size: 40, weight: .semibold))
                     
                     Spacer()
@@ -26,31 +26,35 @@ struct ThemeColorGenTab: View {
                 
                 ScrollView {
                     VStack {
-                        let colorPalletOne = KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matRed.color)
-                        ThemeColorPlate(colorPalette: colorPalletOne)
+                        let colorPaletteOne = KvColorPalette.instance.generateThemeColorPalette(givenColor: MatPackage().matRed.color)
+                        ThemeColorPlate(colorPalette: colorPaletteOne)
                             .padding(.top, 10)
                         
-                        let colorPalletTwo = KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matGold.color)
-                        ThemeColorPlate(colorPalette: colorPalletTwo)
+                        let colorPaletteTwo = KvColorPalette.instance.generateThemeColorPalette(givenColor: MatPackage().matGold.color)
+                        ThemeColorPlate(colorPalette: colorPaletteTwo)
                             .padding(.top, 10)
                         
-                        let colorPalletThree = KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matDGreen.color)
-                        ThemeColorPlate(colorPalette: colorPalletThree)
+                        let colorPaletteThree = KvColorPalette.instance.generateThemeColorPalette(givenColor: MatPackage().matDGreen.color)
+                        ThemeColorPlate(colorPalette: colorPaletteThree)
                             .padding(.top, 10)
                         
-                        /*let colorPalletFour = KvColorPallet.instance.generateThemeColorPallet(givenColor: Color.brown)
-                        ThemeColorPlate(colorPalette: colorPalletFour)
-                            .padding(.top, 10)*/
+                        let colorPaletteFour = KvColorPalette.instance.generateThemeColorPalette(givenColor: Color.brown)
+                        ThemeColorPlate(colorPalette: colorPaletteFour)
+                            .padding(.top, 10)
+                        
+                        let colorPaletteFive = KvColorPalette.instance.generateThemeColorPalette(givenColor: MatPackage().matLBlue.color)
+                        ThemeColorPlate(colorPalette: colorPaletteFive)
+                            .padding(.top, 10)
                         
                         Button(action: {
                             
                         }, label: {
                             Text("Try it out!")
                                 .font(.system(size: 16, weight: .light))
-                                .foregroundColor(Color.themePallet.onPrimary)
+                                .foregroundColor(Color.themePalette.onPrimary)
                                 .frame(maxWidth: .infinity, maxHeight: 10)
                                 .padding()
-                                .background(Color.themePallet.primary)
+                                .background(Color.themePalette.primary)
                                 .cornerRadius(10)
                         })
                         .padding()
