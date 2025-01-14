@@ -1,15 +1,15 @@
 //
 //  CommonUI.swift
-//  kv-ios-color-pallet-app
+//  KvColorPaletteApp
 //
 //  Created by Kavimal Wijewardana on 12/30/24.
 //
 import SwiftUI
-import KvColorPallet_iOS
+import KvColorPalette_iOS
 
 public struct AppBackground: View {
     public var body: some View {
-        Color.themePallet.background
+        Color.themePalette.background
             .edgesIgnoringSafeArea(.all)
     }
 }
@@ -88,9 +88,9 @@ public struct ColorDetailRow: View {
             }
         }
         .padding(5)
-        .background(Color.themePallet.tertiary)
+        .background(Color.themePalette.tertiary)
         .cornerRadius(5)
-        .shadow(color: Color.themePallet.shadow, radius: 5)
+        .shadow(color: Color.themePalette.shadow, radius: 5)
         .padding([.leading, .trailing])
     }
 }

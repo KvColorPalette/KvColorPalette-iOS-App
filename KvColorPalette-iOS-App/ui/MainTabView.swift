@@ -1,6 +1,6 @@
 //
 //  MainTabView.swift
-//  kv-ios-color-pallet-app
+//  KV Color Palette
 //
 //  Created by Kavimal Wijewardana on 12/27/24.
 //
@@ -10,9 +10,9 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            ColorPalletTab()
+            ColorPaletteTab()
                 .tabItem {
-                    Label("Color Pallet", systemImage: "square.grid.3x3")
+                    Label("Color Palette", systemImage: "square.grid.3x3")
                 }
             ThemeColorGenTab()
                 .tabItem {

@@ -1,21 +1,21 @@
 //
-//  ColorPalletTab.swift
-//  kv-ios-color-pallet-app
+//  ColorPaletteTab.swift
+//  KV Color Palette
 //
 //  Created by Kavimal Wijewardana on 12/27/24.
 //
 
 import SwiftUI
-import KvColorPallet_iOS
+import KvColorPalette_iOS
 
-struct ColorPalletTab: View {
+struct ColorPaletteTab: View {
     
     @State private var pageIndex = 0
-    private var pages: [PalletPage]
+    private var pages: [PalettePage]
     private let dotAppearance = UIPageControl.appearance()
     
     public init() {
-        self.pages = PalletPage.palletPages
+        self.pages = PalettePage.palletPages
     }
     
     var body: some View {
@@ -27,13 +27,13 @@ struct ColorPalletTab: View {
                     ForEach(pages) { pageItem in
                         VStack {
                             if pageItem.tag == 1 {
-                                AlphaPalletPager()
+                                AlphaPalettePager()
                             } else if pageItem.tag == 2 {
-                                BrightnessPalletPager()
+                                BrightnessPalettePager()
                             } else if pageItem.tag == 3 {
-                                SaturationPalletPager()
+                                SaturationPalettePager()
                             } else {
-                                PalletPager()
+                                PalettePager()
                             }
                         }
                         .tag(pageItem.tag)
@@ -51,10 +51,10 @@ struct ColorPalletTab: View {
                 }, label: {
                     Text("Try it out!")
                         .font(.system(size: 16, weight: .light))
-                        .foregroundColor(Color.themePallet.onPrimary)
+                        .foregroundColor(Color.themePalette.onPrimary)
                         .frame(maxWidth: .infinity, maxHeight: 10)
                         .padding()
-                        .background(Color.themePallet.primary)
+                        .background(Color.themePalette.primary)
                         .cornerRadius(10)
                 })
                 .padding(.top, -20)
@@ -67,5 +67,5 @@ struct ColorPalletTab: View {
 }
 
 #Preview {
-    ColorPalletTab()
+    ColorPaletteTab()
 }
