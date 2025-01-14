@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AD5C30D2D36BC7B004E48F4 /* KvColorPalette-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD5C30C2D36BC7B004E48F4 /* KvColorPalette-iOS */; };
+		5A58F0282D36C44F00981553 /* KvColorPalette-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5A58F0272D36C44F00981553 /* KvColorPalette-iOS */; };
 		5ADA403A2D24AB980060DB60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA40392D24AB980060DB60 /* README.md */; };
 		5ADA403C2D24ABF00060DB60 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA403B2D24ABF00060DB60 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5ADA40002D1F257F0060DB60 /* KV Color Palette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KV Color Palette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ADA40002D1F257F0060DB60 /* KvColorPalette-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KvColorPalette-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADA40392D24AB980060DB60 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5ADA403B2D24ABF00060DB60 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5ADA40022D1F257F0060DB60 /* kv-ios-color-palette-app */ = {
+		5ADA40022D1F257F0060DB60 /* KvColorPalette-iOS-App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "kv-ios-color-palette-app";
+			path = "KvColorPalette-iOS-App";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD5C30D2D36BC7B004E48F4 /* KvColorPalette-iOS in Frameworks */,
+				5A58F0282D36C44F00981553 /* KvColorPalette-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +43,7 @@
 			children = (
 				5ADA403B2D24ABF00060DB60 /* LICENSE */,
 				5ADA40392D24AB980060DB60 /* README.md */,
-				5ADA40022D1F257F0060DB60 /* kv-ios-color-palette-app */,
+				5ADA40022D1F257F0060DB60 /* KvColorPalette-iOS-App */,
 				5ADA40262D2313820060DB60 /* Frameworks */,
 				5ADA40012D1F257F0060DB60 /* Products */,
 			);
@@ -52,7 +52,7 @@
 		5ADA40012D1F257F0060DB60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ADA40002D1F257F0060DB60 /* KV Color Palette.app */,
+				5ADA40002D1F257F0060DB60 /* KvColorPalette-App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5ADA3FFF2D1F257F0060DB60 /* KV Color Palette */ = {
+		5ADA3FFF2D1F257F0060DB60 /* KvColorPalette-App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "KV Color Palette" */;
+			buildConfigurationList = 5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "KvColorPalette-App" */;
 			buildPhases = (
 				5ADA3FFC2D1F257F0060DB60 /* Sources */,
 				5ADA3FFD2D1F257F0060DB60 /* Frameworks */,
@@ -80,14 +80,15 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5ADA40022D1F257F0060DB60 /* kv-ios-color-palette-app */,
+				5ADA40022D1F257F0060DB60 /* KvColorPalette-iOS-App */,
 			);
-			name = "KV Color Palette";
+			name = "KvColorPalette-App";
 			packageProductDependencies = (
 				5AD5C30C2D36BC7B004E48F4 /* KvColorPalette-iOS */,
+				5A58F0272D36C44F00981553 /* KvColorPalette-iOS */,
 			);
 			productName = "kv-ios-color-pallet-app";
-			productReference = 5ADA40002D1F257F0060DB60 /* KV Color Palette.app */;
+			productReference = 5ADA40002D1F257F0060DB60 /* KvColorPalette-App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5ADA3FFB2D1F257F0060DB60 /* Build configuration list for PBXProject "kv-ios-color-palette-app" */;
+			buildConfigurationList = 5ADA3FFB2D1F257F0060DB60 /* Build configuration list for PBXProject "KvColorPalette-iOS-App" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -115,14 +116,14 @@
 			mainGroup = 5ADA3FF72D1F257F0060DB60;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5AD5C30B2D36BC7B004E48F4 /* XCLocalSwiftPackageReference "../KvColorPallet-iOS" */,
+				5A58F0262D36C44F00981553 /* XCLocalSwiftPackageReference "../KvColorPalette-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5ADA40012D1F257F0060DB60 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5ADA3FFF2D1F257F0060DB60 /* KV Color Palette */,
+				5ADA3FFF2D1F257F0060DB60 /* KvColorPalette-App */,
 			);
 		};
 /* End PBXProject section */
@@ -276,7 +277,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "kv-ios-color-palette-app/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "KvColorPalette-iOS-App/Preview\\ Content";
 				DEVELOPMENT_TEAM = 7G93N9CW8W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -308,7 +309,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "kv-ios-color-palette-app/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "KvColorPalette-iOS-App/Preview\\ Content";
 				DEVELOPMENT_TEAM = 7G93N9CW8W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -336,7 +337,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5ADA3FFB2D1F257F0060DB60 /* Build configuration list for PBXProject "kv-ios-color-palette-app" */ = {
+		5ADA3FFB2D1F257F0060DB60 /* Build configuration list for PBXProject "KvColorPalette-iOS-App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ADA400E2D1F25810060DB60 /* Debug */,
@@ -345,7 +346,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "KV Color Palette" */ = {
+		5ADA40102D1F25810060DB60 /* Build configuration list for PBXNativeTarget "KvColorPalette-App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ADA40112D1F25810060DB60 /* Debug */,
@@ -357,13 +358,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		5AD5C30B2D36BC7B004E48F4 /* XCLocalSwiftPackageReference "../KvColorPallet-iOS" */ = {
+		5A58F0262D36C44F00981553 /* XCLocalSwiftPackageReference "../KvColorPalette-iOS" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../KvColorPallet-iOS";
+			relativePath = "../KvColorPalette-iOS";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5A58F0272D36C44F00981553 /* KvColorPalette-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "KvColorPalette-iOS";
+		};
 		5AD5C30C2D36BC7B004E48F4 /* KvColorPalette-iOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "KvColorPalette-iOS";
