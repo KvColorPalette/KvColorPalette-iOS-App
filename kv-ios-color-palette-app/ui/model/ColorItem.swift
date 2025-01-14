@@ -1,6 +1,6 @@
 //
 //  ColorItem.swift
-//  kv-ios-color-pallet-app
+//  KV Color Palette
 //
 //  Created by Kavimal Wijewardana on 12/30/24.
 //
