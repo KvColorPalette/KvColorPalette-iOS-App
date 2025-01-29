@@ -41,7 +41,13 @@ public struct AppTextFieldOutlineUI: View {
 
 public struct SelectedColorUI: View {
     
-    @State private var colorHex: String = ""
+    @Binding var selectedColor: Color
+    @Binding var colorHex: String
+    
+    public init(selectedColor: Binding<Color>, colorHex: Binding<String>) {
+        self._selectedColor = selectedColor
+        self._colorHex = colorHex
+    }
     
     public var body: some View {
         VStack {
@@ -68,18 +74,15 @@ public struct SelectedColorUI: View {
                 
                 VStack {
                     VStack {
-                        Button(action: {
-                            // Open color picker
-                        }) {
-                            Image(systemName: "hand.rays")
-                                .resizable()
-                                .foregroundColor(Color.themePalette.secondary)
-                                .frame(width: 30, height: 30, alignment: .center)
-                        }
+                        ColorPicker(selection: $selectedColor, supportsOpacity: false, label: {})
+                            .labelsHidden()
+                            .onChange(of: selectedColor) { oldValue, newValue in
+                                colorHex = ColorUtil.getHex(color: newValue)
+                            }
                     }
                     .frame(width: 40, height: 40)
                     .padding()
-                    .background(.white)
+                    .background(selectedColor)
                     .cornerRadius(12)
                     .overlay( /// apply a rounded border
                         RoundedRectangle(cornerRadius: 12)
