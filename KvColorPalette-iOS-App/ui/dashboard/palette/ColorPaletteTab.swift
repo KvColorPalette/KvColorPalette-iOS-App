@@ -11,6 +11,8 @@ import KvColorPalette_iOS
 struct ColorPaletteTab: View {
     
     @State private var pageIndex = 0
+    @State private var navigateToPaletteDetailView = false
+    
     private var pages: [PalettePage]
     private let dotAppearance = UIPageControl.appearance()
     
@@ -47,7 +49,7 @@ struct ColorPaletteTab: View {
                 }
                 
                 Button(action: {
-                    
+                    navigateToPaletteDetailView = true
                 }, label: {
                     Text("Try it out!")
                         .font(.system(size: 16, weight: .light))
@@ -63,6 +65,10 @@ struct ColorPaletteTab: View {
                 Spacer()
             }
         }
+        .fullScreenCover(isPresented: $navigateToPaletteDetailView, content: {
+            //UINavigator.navigateToUIModule(moduleName: "PROFILE", entryData: nil)
+            PaletteGenDetailUI()
+        })
     }
 }
 

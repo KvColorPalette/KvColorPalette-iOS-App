@@ -13,13 +13,7 @@ public struct AlphaPalettePager: View {
     
     public var body: some View {
         VStack {
-            HStack {
-                Text("Alpha Palette")
-                    .font(.system(size: 40, weight: .semibold))
-                
-                Spacer()
-            }
-            .padding([.leading, .trailing], 10)
+            HeadingTitleView(titleText: "Alpha Palette")
             
             let matPackage = MatPackage()
             

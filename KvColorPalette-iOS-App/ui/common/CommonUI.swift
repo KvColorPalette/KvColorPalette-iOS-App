@@ -1,8 +1,8 @@
 //
 //  CommonUI.swift
-//  KvColorPaletteApp
+//  KvColorPalette-App
 //
-//  Created by Kavimal Wijewardana on 12/30/24.
+//  Created by Kavimal Wijewardana on 1/27/25.
 //
 import SwiftUI
 import KvColorPalette_iOS
@@ -14,88 +14,85 @@ public struct AppBackground: View {
     }
 }
 
-public struct ColorBox: View {
+// MARK: - UI component for TextField
+public struct AppTextFieldOutlineUI: View {
     
-    @State private var showBorder = false
+    private var hint: String!
+    @State private var valueText: Binding<String>
+    @State private var isDisable = false
     
-    private var givenColor: Color = .blue
-    private var selectedColor: Color? = nil
-    private var onSelect: (Color) -> Void
-    
-    public init (givenColor: Color, selectedColor: Color? = nil, onSelect: @escaping (Color) -> Void) {
-        self.givenColor = givenColor
-        self.selectedColor = selectedColor
-        self.onSelect = onSelect
+    public init(hint: String, valueText: Binding<String>!) {
+        self.hint = hint
+        self.valueText = valueText
     }
     
     public var body: some View {
-        Rectangle()
-            .fill(givenColor)
-            .frame(width: 32, height: 32)
-            .border(showBorder ? Color.white : .clear, width: 2)
-            .onTapGesture {
-                showBorder.toggle()
-                onSelect(givenColor)
-            }
-            .onAppear {
-                if let selectedColor {
-                    if ColorUtil.getHexWithAlpha(color: selectedColor) == ColorUtil.getHexWithAlpha(color: givenColor) {
-                        showBorder.toggle()
-                    }
-                }
-            }
+        TextField(self.hint, text: self.valueText)
+            .padding(.all)
+            .frame(height: 45)
+            .padding(4)
+            .disabled(isDisable)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5.0)
+                    .strokeBorder(Color.themePalette.primary, style: StrokeStyle(lineWidth: 1.0))
+            )
     }
 }
 
-public struct ColorDetailRow: View {
+public struct SelectedColorUI: View {
     
-    private var selectedColor: Color
-    
-    public init(selectedColor: Color) {
-        self.selectedColor = selectedColor
-    }
+    @State private var colorHex: String = ""
     
     public var body: some View {
-        HStack {
-            Rectangle()
-                .fill(selectedColor)
-                .frame(width: 50, height: 50)
-                .border(Color.black, width: 1)
-                .padding(8)
-            
-            VStack {
-                HStack {
-                    Text("HEX: ")
-                    Spacer()
+        VStack {
+            HStack {
+                VStack {
+                    HStack {
+                        Text("Select your Color")
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundColor(Color.themePalette.secondary)
+                            .padding([.leading, .top], 10)
+                        Spacer()
+                    }
+                    
+                    Text("Touch on the color box or type your color-hex on below to pick your primary color to generate color palette")
+                        .font(.system(size: 12, weight: .light))
+                        .foregroundColor(Color.themePalette.secondary)
+                        .padding([.leading, .trailing], 10)
+                        .padding(.top, 1)
+                    
+                    AppTextFieldOutlineUI(hint: "color-hex", valueText: $colorHex)
+                        .padding([.leading, .trailing, .bottom], 10)
+                        .padding(.top, 2)
                 }
                 
-                HStack {
-                    Text("HEX with Alpha: ")
-                    Spacer()
+                VStack {
+                    VStack {
+                        Button(action: {
+                            // Open color picker
+                        }) {
+                            Image(systemName: "hand.rays")
+                                .resizable()
+                                .foregroundColor(Color.themePalette.secondary)
+                                .frame(width: 30, height: 30, alignment: .center)
+                        }
+                    }
+                    .frame(width: 40, height: 40)
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(12)
+                    .overlay( /// apply a rounded border
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                    )
                 }
-            }
-            
-            VStack {
-                HStack {
-                    Text("\(ColorUtil.getHex(color: selectedColor))")
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("\(ColorUtil.getHexWithAlpha(color: selectedColor))")
-                    Spacer()
-                }
+                .frame(width: 100)
             }
         }
         .padding(5)
-        .background(Color.themePalette.tertiary)
+        .background(Color.white)
         .cornerRadius(5)
         .shadow(color: Color.themePalette.shadow, radius: 5)
         .padding([.leading, .trailing])
     }
-}
-
-#Preview {
-    ColorBox(givenColor: Color.blue, onSelect: { _ in })
-    ColorDetailRow(selectedColor: .red)
 }
