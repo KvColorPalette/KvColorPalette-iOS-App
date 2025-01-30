@@ -70,6 +70,14 @@ public struct SelectedColorUI: View {
                     AppTextFieldOutlineUI(hint: "color-hex", valueText: $colorHex)
                         .padding([.leading, .trailing, .bottom], 10)
                         .padding(.top, 2)
+                        .onChange(of: colorHex) { oldValue, newValue in
+                            if ColorUtil.validateColorHex(colorHex: newValue) {
+                                guard let newColor = ColorUtil.getColorFromHexString(colorHex: newValue) else { return }
+                                selectedColor = newColor
+                            } else {
+                                print("Invalid Color Hex")
+                            }
+                        }
                 }
                 
                 VStack {

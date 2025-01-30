@@ -66,8 +66,7 @@ struct ColorPaletteTab: View {
             }
         }
         .fullScreenCover(isPresented: $navigateToPaletteDetailView, content: {
-            //UINavigator.navigateToUIModule(moduleName: "PROFILE", entryData: nil)
-            PaletteGenDetailUI()
+            PaletteGenDetailUI(selectedPageIndex: pageIndex)
         })
     }
 }

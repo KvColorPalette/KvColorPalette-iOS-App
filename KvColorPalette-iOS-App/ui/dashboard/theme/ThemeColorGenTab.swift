@@ -17,7 +17,6 @@ struct ThemeColorGenTab: View {
             VStack {
                 HeadingTitleView(titleText: "Theme Color Palette")
                 
-                
                 ScrollView {
                     VStack {
                         let colorPaletteOne = KvColorPalette.instance.generateThemeColorPalette(givenColor: MatPackage().matRed.color)
