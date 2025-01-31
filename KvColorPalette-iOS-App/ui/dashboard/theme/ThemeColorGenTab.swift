@@ -10,6 +10,8 @@ import KvColorPalette_iOS
 
 struct ThemeColorGenTab: View {
     
+    @State private var navigateToThemeDetailView = false
+    
     var body: some View {
         ZStack {
             AppBackground()
@@ -40,7 +42,7 @@ struct ThemeColorGenTab: View {
                             .padding(.top, 10)
                         
                         Button(action: {
-                            
+                            navigateToThemeDetailView = true
                         }, label: {
                             Text("Try it out!")
                                 .font(.system(size: 16, weight: .light))
@@ -57,6 +59,9 @@ struct ThemeColorGenTab: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $navigateToThemeDetailView, content: {
+            ThemeGenDetailUI()
+        })
     }
 }
 
