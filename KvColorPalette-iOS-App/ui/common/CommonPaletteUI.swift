@@ -101,14 +101,14 @@ public struct ColorStrip: View {
             HStack {
                 Text("Red: \(stripColor.rgb.red, specifier: "%.2f"), Green: \(stripColor.rgb.green, specifier: "%.2f"), Blue: \(stripColor.rgb.blue, specifier: "%.2f")")
                     .font(.system(size: 12, weight: .light))
-                    .foregroundColor(Color.themePalette.onPrimary)
+                    .foregroundColor(stripColor.isHightLightColor ? Color.black : Color.white)
                     .padding([.leading], 10)
                 
                 Spacer()
                 
                 Text(ColorUtil.getHex(color: stripColor))
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color.themePalette.onPrimary)
+                    .foregroundColor(stripColor.isHightLightColor ? Color.black : Color.white)
                     .padding([.trailing], 10)
             }
         }

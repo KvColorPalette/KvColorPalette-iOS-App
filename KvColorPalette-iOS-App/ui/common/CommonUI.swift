@@ -28,6 +28,7 @@ public struct AppTextFieldOutlineUI: View {
     
     public var body: some View {
         TextField(self.hint, text: self.valueText)
+            .foregroundColor(Color.themePalette.primary)
             .padding(.all)
             .frame(height: 45)
             .padding(4)
@@ -56,14 +57,14 @@ public struct SelectedColorUI: View {
                     HStack {
                         Text("Select your Color")
                             .font(.system(size: 20, weight: .medium))
-                            .foregroundColor(Color.themePalette.secondary)
+                            .foregroundColor(Color.themePalette.primary)
                             .padding([.leading, .top], 10)
                         Spacer()
                     }
                     
                     Text("Touch on the color box or type your color-hex on below to pick your primary color to generate color palette")
                         .font(.system(size: 12, weight: .light))
-                        .foregroundColor(Color.themePalette.secondary)
+                        .foregroundColor(Color.themePalette.primary)
                         .padding([.leading, .trailing], 10)
                         .padding(.top, 1)
                     
