@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A58F0282D36C44F00981553 /* KvColorPalette-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5A58F0272D36C44F00981553 /* KvColorPalette-iOS */; };
+		5ACF880B2D3EAC8500907E01 /* KvColorPalette-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 5AD5C30C2D36BC7B004E48F4 /* KvColorPalette-iOS */; };
 		5ADA403A2D24AB980060DB60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA40392D24AB980060DB60 /* README.md */; };
 		5ADA403C2D24ABF00060DB60 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA403B2D24ABF00060DB60 /* LICENSE */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ACF880B2D3EAC8500907E01 /* KvColorPalette-iOS in Frameworks */,
 				5A58F0282D36C44F00981553 /* KvColorPalette-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

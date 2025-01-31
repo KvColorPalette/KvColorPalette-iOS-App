@@ -13,13 +13,7 @@ public struct BrightnessPalettePager: View {
     
     public var body: some View {
         VStack {
-            HStack {
-                Text("Brightness Palette")
-                    .font(.system(size: 40, weight: .semibold))
-                
-                Spacer()
-            }
-            .padding([.leading, .trailing], 10)
+            HeadingTitleView(titleText: "Brightness Palette")
             
             let matPackage = MatPackage()
             

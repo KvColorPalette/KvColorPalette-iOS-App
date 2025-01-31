@@ -13,13 +13,7 @@ public struct PalettePager: View {
     
     public var body: some View {
         VStack {
-            HStack {
-                Text("Color Palette")
-                    .font(.system(size: 40, weight: .semibold))
-                
-                Spacer()
-            }
-            .padding([.leading, .trailing], 10)
+            HeadingTitleView(titleText: "Color Palette")
             
             let matPackage = MatPackage()
             

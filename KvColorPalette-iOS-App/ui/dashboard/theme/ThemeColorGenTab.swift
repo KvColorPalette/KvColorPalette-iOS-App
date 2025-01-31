@@ -15,14 +15,7 @@ struct ThemeColorGenTab: View {
             AppBackground()
             
             VStack {
-                HStack {
-                    Text("Theme Color Palette")
-                        .font(.system(size: 40, weight: .semibold))
-                    
-                    Spacer()
-                }
-                .padding([.leading, .trailing], 10)
-                .padding(.bottom, -10)
+                HeadingTitleView(titleText: "Theme Color Palette")
                 
                 ScrollView {
                     VStack {
