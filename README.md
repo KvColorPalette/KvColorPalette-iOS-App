@@ -7,7 +7,7 @@ KvColorPalette-iOS swift package.
 * Generate a color palette based on a single input color. Using color alpha/mat-colors
 * Create a complete theme color set, including primary, secondary, background, and surface colors.
 * Support for Material Design color guidelines.
-* Easy integration with Android projects.
+* Easy integration with iOS projects.
 
 # Set-up
 After you clone this code and try to build(run) it you will see a build failure, because this code base configured the KvColorPalette-iOS swift packageas local package dependency. This configured like this for development and testing purposes of the library.
