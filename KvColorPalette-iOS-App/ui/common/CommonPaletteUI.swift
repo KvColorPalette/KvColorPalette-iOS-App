@@ -107,6 +107,7 @@ public struct ColorStrip: View {
                 Spacer()
                 
                 Text(ColorUtil.getHex(color: stripColor))
+                    .textSelection(.enabled)
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(stripColor.isHightLightColor ? Color.black : Color.white)
                     .padding([.trailing], 10)
