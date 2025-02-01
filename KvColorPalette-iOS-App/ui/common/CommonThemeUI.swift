@@ -81,6 +81,37 @@ public struct ThemeColorPlate: View {
     }
 }
 
+public struct ThemeColorItem: View {
+    
+    private var color: Color
+    private var itemName: String
+    
+    public init(color: Color, itemName: String) {
+        self.color = color
+        self.itemName = itemName
+    }
+    
+    public var body: some View {
+        VStack {
+            HStack {
+                Text(itemName)
+                    .font(.system(size: 12, weight: .light))
+                    .foregroundColor(color.isHightLightColor ? Color.black : Color.white)
+                
+                Spacer()
+                
+                Text(ColorUtil.getHex(color: color))
+                    .textSelection(.enabled)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(color.isHightLightColor ? Color.black : Color.white)
+            }
+        }
+        .frame(height: 25)
+        .padding()
+        .background(self.color)
+    }
+}
+
 struct ColorCircle: View {
     
     private var color: Color
