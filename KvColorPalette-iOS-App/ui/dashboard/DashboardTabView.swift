@@ -8,17 +8,27 @@
 import SwiftUI
 
 struct DashboardTabView: View {
+    
+    @Binding var viewRefreshId: UUID
+    
+    init(viewRefreshId: Binding<UUID>) {
+        self._viewRefreshId = viewRefreshId
+    }
+    
     var body: some View {
         TabView {
             ColorPaletteTab()
+                .id(viewRefreshId)
                 .tabItem {
                     Label("Color Palette", systemImage: "square.grid.3x3")
                 }
             ThemeColorGenTab()
+                .id(viewRefreshId)
                 .tabItem {
                     Label("Theme Gen", systemImage: "theatermask.and.paintbrush")
                 }
-            SettingsTab()
+            SettingsTab(viewRefreshId: $viewRefreshId)
+                .id(viewRefreshId)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.2.fill")
                 }
@@ -27,5 +37,6 @@ struct DashboardTabView: View {
 }
 
 #Preview {
-    DashboardTabView()
+    @Previewable @State var vid = UUID()
+    DashboardTabView(viewRefreshId: $vid)
 }

@@ -10,8 +10,13 @@ import KvColorPalette_iOS
 
 struct SettingsTab: View {
     
+    @Binding var viewRefreshId: UUID
     @State private var selectedColor = Color.white
     @State private var isShowingColorPicker = false
+    
+    init(viewRefreshId: Binding<UUID>) {
+        self._viewRefreshId = viewRefreshId
+    }
     
     var body: some View {
         ZStack {
@@ -23,7 +28,6 @@ struct SettingsTab: View {
                 VStack {
                     HStack {
                         Text("Current Theme")
-                            //.foregroundColor(Color.themePalette.onPrimary)
                             .padding()
                         Spacer()
                         
@@ -36,7 +40,10 @@ struct SettingsTab: View {
                             ColorPicker(selection: $selectedColor, label: {})
                                     .labelsHidden()
                                     .onChange(of: selectedColor) { oldValue, newValue in
+                                        AppUserDefaults.getInstance().storeValue(key:AppUserDefaults.CURRENT_THEME_COLOR, data: ColorUtil.getHex(color: newValue))
                                         KvColorPalette.initialize(basicColor: selectedColor)
+                                        // Update the view refresh id due to change of theme color.
+                                        viewRefreshId = UUID()
                                     }
                         }
                         .padding([.top, .bottom])
@@ -63,5 +70,6 @@ struct SettingsTab: View {
 }
 
 #Preview {
-    SettingsTab()
+    @Previewable @State var vid = UUID()
+    SettingsTab(viewRefreshId: $vid)
 }
