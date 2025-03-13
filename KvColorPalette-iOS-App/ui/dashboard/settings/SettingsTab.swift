@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import KvColorPalette_iOS
 
 struct SettingsTab: View {
+    
+    @State private var selectedColor = Color.white
+    @State private var isShowingColorPicker = false
+    
     var body: some View {
         ZStack {
             AppBackground()
@@ -16,33 +21,37 @@ struct SettingsTab: View {
                 HeadingTitleView(titleText: "Settings")
                 
                 VStack {
-                    Button(action: {
+                    HStack {
+                        Text("Current Theme")
+                            //.foregroundColor(Color.themePalette.onPrimary)
+                            .padding()
+                        Spacer()
                         
-                    }) {
-                        HStack {
-                            Text("Current Theme")
-                                .foregroundColor(Color.themePalette.onPrimary)
-                                .padding()
-                            Spacer()
-                            
+                        ZStack {
                             RoundedRectangle(cornerRadius: 5)
-                                .fill(.blue)
-                                .frame(width: 30, height: 30)
-                                //.border(Color.black, width: 1)
-                                .padding([.top, .bottom])
-                                .padding([.trailing], 5)
-                            
-                            Image(systemName: "chevron.right")
-                                .padding([.top, .bottom, .trailing])
-                                
-                        }
-                        .background(Color.themePalette.tertiary)
-                        .cornerRadius(12)
-                        .overlay( /// apply a rounded border
-                            RoundedRectangle(cornerRadius: 12)
                                 .stroke(Color.themePalette.primary, lineWidth: 1)
-                        )
+                                .fill(selectedColor)
+                                .frame(width: 35, height: 35)
+                                
+                            ColorPicker(selection: $selectedColor, label: {})
+                                    .labelsHidden()
+                                    .onChange(of: selectedColor) { oldValue, newValue in
+                                        KvColorPalette.initialize(basicColor: selectedColor)
+                                    }
+                        }
+                        .padding([.top, .bottom])
+                        .padding([.trailing], 5)
+                        
+                        Image(systemName: "chevron.right")
+                            .padding([.top, .bottom, .trailing])
+                            
                     }
+                    //.background(Color.themePalette.tertiary)
+                    .cornerRadius(12)
+                    .overlay( /// apply a rounded border
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                    )
                 }
                 .padding([.top], 12)
                 .padding([.leading, .trailing], 20)
