@@ -14,7 +14,7 @@ struct KvColorPaletteApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            DashboardTabView()
         }
     }
 }

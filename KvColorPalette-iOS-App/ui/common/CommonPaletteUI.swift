@@ -81,7 +81,7 @@ public struct ColorDetailRow: View {
             }
         }
         .padding(5)
-        .background(Color.themePalette.tertiary)
+        .background(Color.themePalette.background)
         .cornerRadius(5)
         .shadow(color: Color.themePalette.shadow, radius: 5)
         .padding([.leading, .trailing])

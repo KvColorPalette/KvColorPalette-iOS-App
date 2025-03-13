@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainTabView: View {
+struct DashboardTabView: View {
     var body: some View {
         TabView {
             ColorPaletteTab()
@@ -18,10 +18,14 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Theme Gen", systemImage: "theatermask.and.paintbrush")
                 }
+            SettingsTab()
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.2.fill")
+                }
         }
     }
 }
 
 #Preview {
-    MainTabView()
+    DashboardTabView()
 }
