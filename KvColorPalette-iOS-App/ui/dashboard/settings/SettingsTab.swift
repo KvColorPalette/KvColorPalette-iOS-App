@@ -10,17 +10,21 @@ import KvColorPalette_iOS
 
 struct SettingsTab: View {
     
-    @Binding var viewRefreshId: UUID
     @State private var selectedColor = Color.white
     @State private var isShowingColorPicker = false
     
-    init(viewRefreshId: Binding<UUID>) {
-        self._viewRefreshId = viewRefreshId
+    private var onChangeTheme: () -> Void
+    
+    @State var viewRefreshId = UUID()
+    
+    init(onChangeTheme: @escaping () -> Void) {
+        self.onChangeTheme = onChangeTheme
     }
     
     var body: some View {
         ZStack {
             AppBackground()
+                .id(viewRefreshId)
             
             VStack {
                 HeadingTitleView(titleText: "Settings")
@@ -44,6 +48,8 @@ struct SettingsTab: View {
                                         KvColorPalette.initialize(basicColor: selectedColor)
                                         // Update the view refresh id due to change of theme color.
                                         viewRefreshId = UUID()
+                                        // Invoke the theme changed callback
+                                        onChangeTheme()
                                     }
                         }
                         .padding([.top, .bottom])
@@ -65,11 +71,11 @@ struct SettingsTab: View {
                 
                 Spacer()
             }
+            .id(viewRefreshId)
         }
     }
 }
 
 #Preview {
-    @Previewable @State var vid = UUID()
-    SettingsTab(viewRefreshId: $vid)
+    SettingsTab(onChangeTheme: {})
 }

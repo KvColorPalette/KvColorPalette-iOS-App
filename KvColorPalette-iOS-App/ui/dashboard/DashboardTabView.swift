@@ -6,37 +6,42 @@
 //
 
 import SwiftUI
+import KvColorPalette_iOS
 
 struct DashboardTabView: View {
     
-    @Binding var viewRefreshId: UUID
-    
-    init(viewRefreshId: Binding<UUID>) {
-        self._viewRefreshId = viewRefreshId
-    }
+    @State var viewRefreshId: UUID = UUID()
+    @State private var selectedColor = Color.white
     
     var body: some View {
-        TabView {
-            ColorPaletteTab()
+        ZStack {
+            AppBackground()
                 .id(viewRefreshId)
-                .tabItem {
-                    Label("Color Palette", systemImage: "square.grid.3x3")
+            
+            VStack {
+                TabView {
+                    ColorPaletteTab()
+                        .id(viewRefreshId)
+                        .tabItem {
+                            Label("Color Palette", systemImage: "square.grid.3x3")
+                        }
+                    ThemeColorGenTab()
+                        .id(viewRefreshId)
+                        .tabItem {
+                            Label("Theme Gen", systemImage: "theatermask.and.paintbrush")
+                        }
+                    SettingsTab(onChangeTheme: {
+                        viewRefreshId = UUID()
+                    })
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape.2.fill")
+                    }
                 }
-            ThemeColorGenTab()
-                .id(viewRefreshId)
-                .tabItem {
-                    Label("Theme Gen", systemImage: "theatermask.and.paintbrush")
-                }
-            SettingsTab(viewRefreshId: $viewRefreshId)
-                .id(viewRefreshId)
-                .tabItem {
-                    Label("Settings", systemImage: "gearshape.2.fill")
-                }
+            }
         }
     }
 }
 
 #Preview {
-    @Previewable @State var vid = UUID()
-    DashboardTabView(viewRefreshId: $vid)
+    DashboardTabView()
 }
