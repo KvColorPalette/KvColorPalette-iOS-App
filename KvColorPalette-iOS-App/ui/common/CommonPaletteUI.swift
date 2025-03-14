@@ -41,49 +41,74 @@ public struct ColorBox: View {
 }
 
 public struct ColorDetailRow: View {
+    private var selectedColorList: [Color]
     
-    private var selectedColor: Color
-    
-    public init(selectedColor: Color) {
-        self.selectedColor = selectedColor
+    public init(selectedColorList: [Color]) {
+        self.selectedColorList = selectedColorList
     }
     
     public var body: some View {
         HStack {
-            Rectangle()
-                .fill(selectedColor)
-                .frame(width: 50, height: 50)
-                .border(Color.black, width: 1)
-                .padding(8)
-            
             VStack {
-                HStack {
-                    Text("HEX: ")
-                    Spacer()
-                }
                 
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.themePalette.primary, lineWidth: 1)
+                    .fill(selectedColorList.count >= 1 ? selectedColorList[0] : Color.white)
+                    .frame(width: 50, height: 50)
+                    .padding(8)
                 HStack {
-                    Text("HEX with Alpha: ")
-                    Spacer()
+                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 1 ? selectedColorList[0] : Color.white))")
                 }
             }
             
             VStack {
-                HStack {
-                    Text("\(ColorUtil.getHex(color: selectedColor))")
-                    Spacer()
-                }
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.themePalette.primary, lineWidth: 1)
+                    .fill(selectedColorList.count >= 2 ? selectedColorList[1] : Color.white)
+                    .frame(width: 50, height: 50)
+                    .padding(8)
                 
                 HStack {
-                    Text("\(ColorUtil.getHexWithAlpha(color: selectedColor))")
-                    Spacer()
+                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 2 ? selectedColorList[1] : Color.white))")
+                }
+            }
+            
+            VStack {
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.themePalette.primary, lineWidth: 1)
+                    .fill(selectedColorList.count >= 3 ? selectedColorList[2] : Color.white)
+                    .frame(width: 50, height: 50)
+                    .padding(8)
+                
+                HStack {
+                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 3 ? selectedColorList[2] : Color.white))")
+                }
+            }
+            
+            VStack {
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.themePalette.primary, lineWidth: 1)
+                    .fill(selectedColorList.count >= 4 ? selectedColorList[3] : Color.white)
+                    .frame(width: 50, height: 50)
+                    .padding(8)
+                
+                HStack {
+                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 4 ? selectedColorList[3] : Color.white))")
+                }
+            }
+            
+            VStack {
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.themePalette.primary, lineWidth: 1)
+                    .fill(selectedColorList.count >= 5 ? selectedColorList[4] : Color.white)
+                    .frame(width: 50, height: 50)
+                    .padding(8)
+                
+                HStack {
+                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 5 ? selectedColorList[4] : Color.white))")
                 }
             }
         }
-        .padding(5)
-        .background(Color.themePalette.background)
-        .cornerRadius(5)
-        .shadow(color: Color.themePalette.shadow, radius: 5)
         .padding([.leading, .trailing])
     }
 }
@@ -121,6 +146,6 @@ public struct ColorStrip: View {
 
 #Preview {
     ColorBox(givenColor: Color.blue, onSelect: { _ in })
-    ColorDetailRow(selectedColor: .red)
+    ColorDetailRow(selectedColorList: [])
     ColorStrip(stripColor: .red)
 }
