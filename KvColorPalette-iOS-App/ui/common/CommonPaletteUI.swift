@@ -55,9 +55,12 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 1 ? selectedColorList[0] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding(8)
+                    .padding([.top, .leading, .trailing], 6)
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 1 ? selectedColorList[0] : Color.white))")
+                        .textSelection(.enabled)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(Color.themePalette.secondary)
                 }
             }
             
@@ -66,10 +69,13 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 2 ? selectedColorList[1] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding(8)
+                    .padding([.top, .leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 2 ? selectedColorList[1] : Color.white))")
+                        .textSelection(.enabled)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(Color.themePalette.secondary)
                 }
             }
             
@@ -78,10 +84,13 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 3 ? selectedColorList[2] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding(8)
+                    .padding([.top, .leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 3 ? selectedColorList[2] : Color.white))")
+                        .textSelection(.enabled)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(Color.themePalette.secondary)
                 }
             }
             
@@ -90,10 +99,13 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 4 ? selectedColorList[3] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding(8)
+                    .padding([.top, .leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 4 ? selectedColorList[3] : Color.white))")
+                        .textSelection(.enabled)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(Color.themePalette.secondary)
                 }
             }
             
@@ -102,10 +114,13 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 5 ? selectedColorList[4] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding(8)
+                    .padding([.top, .leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 5 ? selectedColorList[4] : Color.white))")
+                        .textSelection(.enabled)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(Color.themePalette.secondary)
                 }
             }
         }
