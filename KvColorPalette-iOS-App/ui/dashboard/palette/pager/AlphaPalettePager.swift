@@ -10,6 +10,7 @@ import KvColorPalette_iOS
 public struct AlphaPalettePager: View {
     
     @State var selectedColor: Color = .white
+    @State var selectedColorList: Array<Color> = []
     
     public var body: some View {
         VStack {
@@ -41,8 +42,43 @@ public struct AlphaPalettePager: View {
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, -15)
+            .onChange(of: selectedColor) { oldColor, newColor in
+                switch(selectedColorList.count) {
+                case 0:
+                    selectedColorList.append(newColor)
+                    break
+                case 1:
+                    selectedColorList.append(selectedColorList[0])
+                    selectedColorList[0] = newColor
+                    break
+                case 2:
+                    selectedColorList.append(selectedColorList[1])
+                    selectedColorList[1] = selectedColorList[0]
+                    selectedColorList[0] = newColor
+                    break
+                case 3:
+                    selectedColorList.append(selectedColorList[2])
+                    selectedColorList[2] = selectedColorList[1]
+                    selectedColorList[1] = selectedColorList[0]
+                    selectedColorList[0] = newColor
+                    break
+                case 4:
+                    selectedColorList.append(selectedColorList[3])
+                    selectedColorList[3] = selectedColorList[2]
+                    selectedColorList[2] = selectedColorList[1]
+                    selectedColorList[1] = selectedColorList[0]
+                    selectedColorList[0] = newColor
+                    break
+                default:
+                    selectedColorList[4] = selectedColorList[3]
+                    selectedColorList[3] = selectedColorList[2]
+                    selectedColorList[2] = selectedColorList[1]
+                    selectedColorList[1] = selectedColorList[0]
+                    selectedColorList[0] = newColor
+                }
+            }
             
-            ColorDetailRow(selectedColor: selectedColor)
+            ColorDetailRow(selectedColorList: selectedColorList)
             
             Spacer()
         }

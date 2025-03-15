@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct KvColorPaletteApp: App {
-    
+        
     @UIApplicationDelegateAdaptor(KvColorPaletteAppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            DashboardTabView()
         }
     }
 }
