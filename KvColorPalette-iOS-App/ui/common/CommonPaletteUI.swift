@@ -159,8 +159,46 @@ public struct ColorStrip: View {
     }
 }
 
+public struct ColorCountSelector: View {
+    
+    @Binding var selectedCount: Int
+    let options = [2, 5, 10, 15, 20, 25, 30]
+    
+    public init (selectedCount: Binding<Int>) {
+        self._selectedCount = selectedCount
+    }
+    
+    public var body: some View {
+        HStack {
+            Text("Select your Color")
+                .font(.system(size: 20, weight: .medium))
+                .foregroundColor(Color.themePalette.primary)
+                .padding(10)
+            Spacer()
+            
+            Menu {
+                ForEach(options, id: \.self) { option in
+                    Button("\(option)", action: { selectedCount = option })
+                }
+            } label: {
+                Label("\(selectedCount)", systemImage: "chevron.down")
+                    .padding()
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(8)
+            }
+            .padding(4)
+        }
+        .padding(5)
+        .background(Color.white)
+        .cornerRadius(5)
+        .shadow(color: Color.themePalette.shadow, radius: 5)
+        .padding([.leading, .trailing])
+    }
+}
+
 #Preview {
     ColorBox(givenColor: Color.blue, onSelect: { _ in })
     ColorDetailRow(selectedColorList: [])
     ColorStrip(stripColor: .red)
+    ColorCountSelector(selectedCount: .constant(2))
 }

@@ -17,6 +17,7 @@ struct PaletteGenDetailUI: View {
     
     @State private var colorHex: String = ""
     @State private var selectedColor: Color = .white
+    @State private var selectedColorCount: Int = 2
     @State private var colorList: [Color] = []
     
     public init(selectedPageIndex: Int) {
@@ -45,14 +46,18 @@ struct PaletteGenDetailUI: View {
                 SelectedColorUI(selectedColor: $selectedColor, colorHex: $colorHex)
                     .padding(.top, 8)
                 
+                if selectedPageIndex != 0 {
+                    ColorCountSelector(selectedCount: $selectedColorCount)
+                }
+                
                 Button(action: {
                     switch selectedPageIndex {
                     case 1:
-                        colorList = KvColorPalette.instance.generateAlphaColorPalette(givenColor: selectedColor)
+                        colorList = KvColorPalette.instance.generateAlphaColorPalette(givenColor: selectedColor, colorCount: selectedColorCount)
                     case 2:
-                        colorList = KvColorPalette.instance.generateBrightnessColorPalette(givenColor: selectedColor)
+                        colorList = KvColorPalette.instance.generateBrightnessColorPalette(givenColor: selectedColor, colorCount: selectedColorCount)
                     case 3:
-                        colorList = KvColorPalette.instance.generateSaturationColorPalette(givenColor: selectedColor)
+                        colorList = KvColorPalette.instance.generateSaturationColorPalette(givenColor: selectedColor, colorCount: selectedColorCount)
                     default:
                         let closestColor = KvColorPalette.instance.findClosestKvColor(givenColor: selectedColor)
                         colorList = KvColorPalette.instance.generateColorPalette(givenColor: closestColor)
