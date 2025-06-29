@@ -37,8 +37,6 @@ public struct BrightnessPalettePager: View {
                     BrightnessPaletteColorRow(givenColor: matPackage.matOrange, selectedColor: $selectedColor)
                 }
                 .padding()
-                
-                Spacer()
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, -15)
