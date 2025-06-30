@@ -43,6 +43,12 @@ public struct ColorBox: View {
 public struct ColorDetailRow: View {
     private var selectedColorList: [Color]
     
+    @State private var isFirstColorCopied: Bool = false
+    @State private var isSecondColorCopied: Bool = false
+    @State private var isThirdColorCopied: Bool = false
+    @State private var isForthColorCopied: Bool = false
+    @State private var isFifthColorCopied: Bool = false
+    
     public init(selectedColorList: [Color]) {
         self.selectedColorList = selectedColorList
     }
@@ -50,78 +56,209 @@ public struct ColorDetailRow: View {
     public var body: some View {
         HStack {
             VStack {
-                
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.themePalette.primary, lineWidth: 1)
-                    .fill(selectedColorList.count >= 1 ? selectedColorList[0] : Color.white)
-                    .frame(width: 50, height: 50)
+                @State var isCopied: Bool = false
+                Button(action: {
+                    if selectedColorList.count >= 1 {
+                        isFirstColorCopied = true
+                        isSecondColorCopied = false
+                        isThirdColorCopied = false
+                        isForthColorCopied = false
+                        isFifthColorCopied = false
+                        UIPasteboard.general.string = ColorUtil.getHex(color: selectedColorList.count >= 1 ? selectedColorList[0] : Color.white)
+                    }
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                            .fill(selectedColorList.count >= 1 ? selectedColorList[0] : Color.white)
+                            .frame(width: 50, height: 50)
+                        
+                        if selectedColorList.count >= 1 {
+                            if isFirstColorCopied {
+                                VStack {
+                                    Image(systemName: "checkmark.arrow.trianglehead.counterclockwise")
+                                        .resizable()
+                                        .foregroundColor(Color.themePalette.secondary)
+                                        .frame(width: 15, height: 15, alignment: .center)
+                                    
+                                    Text("Copied")
+                                        .font(.system(size: 8, weight: .light))
+                                        .foregroundColor(Color.themePalette.secondary)
+                                }
+                            } else {
+                                Image(systemName: "hand.rays")
+                                    .resizable()
+                                    .foregroundColor(Color.themePalette.secondary)
+                                    .frame(width: 25, height: 25, alignment: .center)
+                            }
+                        }
+                    }
                     .padding([.top, .leading, .trailing], 6)
-                HStack {
-                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 1 ? selectedColorList[0] : Color.white))")
-                        .textSelection(.enabled)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color.themePalette.secondary)
-                }
+                })
             }
             
             VStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.themePalette.primary, lineWidth: 1)
-                    .fill(selectedColorList.count >= 2 ? selectedColorList[1] : Color.white)
-                    .frame(width: 50, height: 50)
+                Button(action: {
+                    if selectedColorList.count >= 2 {
+                        isFirstColorCopied = false
+                        isSecondColorCopied = true
+                        isThirdColorCopied = false
+                        isForthColorCopied = false
+                        isFifthColorCopied = false
+                        UIPasteboard.general.string = ColorUtil.getHex(color: selectedColorList.count >= 2 ? selectedColorList[1] : Color.white)
+                    }
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                            .fill(selectedColorList.count >= 2 ? selectedColorList[1] : Color.white)
+                            .frame(width: 50, height: 50)
+                        
+                        if selectedColorList.count >= 2 {
+                            if isSecondColorCopied {
+                                VStack {
+                                    Image(systemName: "checkmark.arrow.trianglehead.counterclockwise")
+                                        .resizable()
+                                        .foregroundColor(Color.themePalette.secondary)
+                                        .frame(width: 15, height: 15, alignment: .center)
+                                    
+                                    Text("Copied")
+                                        .font(.system(size: 8, weight: .light))
+                                        .foregroundColor(Color.themePalette.secondary)
+                                }
+                            } else {
+                                Image(systemName: "hand.rays")
+                                    .resizable()
+                                    .foregroundColor(Color.themePalette.secondary)
+                                    .frame(width: 25, height: 25, alignment: .center)
+                            }
+                        }
+                    }
                     .padding([.top, .leading, .trailing], 6)
-                
-                HStack {
-                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 2 ? selectedColorList[1] : Color.white))")
-                        .textSelection(.enabled)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color.themePalette.secondary)
-                }
+                })
             }
             
             VStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.themePalette.primary, lineWidth: 1)
-                    .fill(selectedColorList.count >= 3 ? selectedColorList[2] : Color.white)
-                    .frame(width: 50, height: 50)
+                Button(action: {
+                    if selectedColorList.count >= 3 {
+                        isFirstColorCopied = false
+                        isSecondColorCopied = false
+                        isThirdColorCopied = true
+                        isForthColorCopied = false
+                        isFifthColorCopied = false
+                        UIPasteboard.general.string = ColorUtil.getHex(color: selectedColorList.count >= 3 ? selectedColorList[2] : Color.white)
+                    }
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                            .fill(selectedColorList.count >= 3 ? selectedColorList[2] : Color.white)
+                            .frame(width: 50, height: 50)
+                        
+                        if selectedColorList.count >= 3 {
+                            if isThirdColorCopied {
+                                VStack {
+                                    Image(systemName: "checkmark.arrow.trianglehead.counterclockwise")
+                                        .resizable()
+                                        .foregroundColor(Color.themePalette.secondary)
+                                        .frame(width: 15, height: 15, alignment: .center)
+                                    
+                                    Text("Copied")
+                                        .font(.system(size: 8, weight: .light))
+                                        .foregroundColor(Color.themePalette.secondary)
+                                }
+                            } else {
+                                Image(systemName: "hand.rays")
+                                    .resizable()
+                                    .foregroundColor(Color.themePalette.secondary)
+                                    .frame(width: 25, height: 25, alignment: .center)
+                            }
+                        }
+                    }
                     .padding([.top, .leading, .trailing], 6)
-                
-                HStack {
-                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 3 ? selectedColorList[2] : Color.white))")
-                        .textSelection(.enabled)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color.themePalette.secondary)
-                }
+                })
             }
             
             VStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.themePalette.primary, lineWidth: 1)
-                    .fill(selectedColorList.count >= 4 ? selectedColorList[3] : Color.white)
-                    .frame(width: 50, height: 50)
+                Button(action: {
+                    if selectedColorList.count >= 4 {
+                        isFirstColorCopied = false
+                        isSecondColorCopied = false
+                        isThirdColorCopied = false
+                        isForthColorCopied = true
+                        isFifthColorCopied = false
+                        UIPasteboard.general.string = ColorUtil.getHex(color: selectedColorList.count >= 4 ? selectedColorList[3] : Color.white)
+                    }
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                            .fill(selectedColorList.count >= 4 ? selectedColorList[3] : Color.white)
+                            .frame(width: 50, height: 50)
+                        
+                        if selectedColorList.count >= 4 {
+                            if isForthColorCopied {
+                                VStack {
+                                    Image(systemName: "checkmark.arrow.trianglehead.counterclockwise")
+                                        .resizable()
+                                        .foregroundColor(Color.themePalette.secondary)
+                                        .frame(width: 15, height: 15, alignment: .center)
+                                    
+                                    Text("Copied")
+                                        .font(.system(size: 8, weight: .light))
+                                        .foregroundColor(Color.themePalette.secondary)
+                                }
+                            } else {
+                                Image(systemName: "hand.rays")
+                                    .resizable()
+                                    .foregroundColor(Color.themePalette.secondary)
+                                    .frame(width: 25, height: 25, alignment: .center)
+                            }
+                        }
+                    }
                     .padding([.top, .leading, .trailing], 6)
-                
-                HStack {
-                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 4 ? selectedColorList[3] : Color.white))")
-                        .textSelection(.enabled)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color.themePalette.secondary)
-                }
+                })
             }
             
             VStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.themePalette.primary, lineWidth: 1)
-                    .fill(selectedColorList.count >= 5 ? selectedColorList[4] : Color.white)
-                    .frame(width: 50, height: 50)
+                Button(action: {
+                    if selectedColorList.count >= 5 {
+                        isFirstColorCopied = false
+                        isSecondColorCopied = false
+                        isThirdColorCopied = false
+                        isForthColorCopied = false
+                        isFifthColorCopied = true
+                        UIPasteboard.general.string = ColorUtil.getHex(color: selectedColorList.count >= 5 ? selectedColorList[4] : Color.white)
+                    }
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                            .fill(selectedColorList.count >= 5 ? selectedColorList[4] : Color.white)
+                            .frame(width: 50, height: 50)
+                        
+                        if selectedColorList.count >= 5 {
+                            if isFifthColorCopied {
+                                VStack {
+                                    Image(systemName: "checkmark.arrow.trianglehead.counterclockwise")
+                                        .resizable()
+                                        .foregroundColor(Color.themePalette.secondary)
+                                        .frame(width: 15, height: 15, alignment: .center)
+                                    
+                                    Text("Copied")
+                                        .font(.system(size: 8, weight: .light))
+                                        .foregroundColor(Color.themePalette.secondary)
+                                }
+                            } else {
+                                Image(systemName: "hand.rays")
+                                    .resizable()
+                                    .foregroundColor(Color.themePalette.secondary)
+                                    .frame(width: 25, height: 25, alignment: .center)
+                            }
+                        }
+                    }
                     .padding([.top, .leading, .trailing], 6)
-                
-                HStack {
-                    Text("\(ColorUtil.getHex(color: selectedColorList.count >= 5 ? selectedColorList[4] : Color.white))")
-                        .textSelection(.enabled)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color.themePalette.secondary)
-                }
+                })
             }
         }
         .padding([.leading, .trailing])
