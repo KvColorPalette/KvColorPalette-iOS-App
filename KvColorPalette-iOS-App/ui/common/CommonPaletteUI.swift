@@ -14,17 +14,38 @@ public struct ColorBox: View {
     private var givenColor: Color = .blue
     private var selectedColor: Color? = nil
     private var onSelect: (Color) -> Void
+    private var boxWidth: CGFloat = 32
+    private var boxHeight: CGFloat = 32
     
     public init (givenColor: Color, selectedColor: Color? = nil, onSelect: @escaping (Color) -> Void) {
         self.givenColor = givenColor
         self.selectedColor = selectedColor
         self.onSelect = onSelect
+        
+        switch UIUtil.getScreenType() {
+        case .MINI_SCREEN:
+            boxWidth = 28
+            boxHeight = 24
+            break
+        case .AVERAGE_SCREEN:
+            boxWidth = 30
+            boxHeight = 30
+            break
+        case .PLUS_SCREEN:
+            boxWidth = 36
+            boxHeight = 36
+            break
+        case .MAX_SCREEN:
+            boxWidth = 38
+            boxHeight = 38
+            break
+        }
     }
     
     public var body: some View {
         Rectangle()
             .fill(givenColor)
-            .frame(width: 32, height: 32)
+            .frame(width: boxWidth, height: boxHeight)
             .border(showBorder ? Color.white : .clear, width: 2)
             .onTapGesture {
                 showBorder.toggle()
@@ -55,7 +76,7 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 1 ? selectedColorList[0] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding([.top, .leading, .trailing], 6)
+                    .padding([.leading, .trailing], 6)
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 1 ? selectedColorList[0] : Color.white))")
                         .textSelection(.enabled)
@@ -69,7 +90,7 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 2 ? selectedColorList[1] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding([.top, .leading, .trailing], 6)
+                    .padding([.leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 2 ? selectedColorList[1] : Color.white))")
@@ -84,7 +105,7 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 3 ? selectedColorList[2] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding([.top, .leading, .trailing], 6)
+                    .padding([.leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 3 ? selectedColorList[2] : Color.white))")
@@ -99,7 +120,7 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 4 ? selectedColorList[3] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding([.top, .leading, .trailing], 6)
+                    .padding([.leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 4 ? selectedColorList[3] : Color.white))")
@@ -114,7 +135,7 @@ public struct ColorDetailRow: View {
                     .stroke(Color.themePalette.primary, lineWidth: 1)
                     .fill(selectedColorList.count >= 5 ? selectedColorList[4] : Color.white)
                     .frame(width: 50, height: 50)
-                    .padding([.top, .leading, .trailing], 6)
+                    .padding([.leading, .trailing], 6)
                 
                 HStack {
                     Text("\(ColorUtil.getHex(color: selectedColorList.count >= 5 ? selectedColorList[4] : Color.white))")
