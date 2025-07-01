@@ -8,23 +8,44 @@ import SwiftUI
 import KvColorPalette_iOS
 
 public struct ColorBox: View {
-    
+
     @State private var showBorder = false
-    
+
     private var givenColor: Color = .blue
     private var selectedColor: Color? = nil
     private var onSelect: (Color) -> Void
-    
+    private var boxWidth: CGFloat = 32
+    private var boxHeight: CGFloat = 32
+
     public init (givenColor: Color, selectedColor: Color? = nil, onSelect: @escaping (Color) -> Void) {
         self.givenColor = givenColor
         self.selectedColor = selectedColor
         self.onSelect = onSelect
+
+        switch UIUtil.getScreenType() {
+        case .MINI_SCREEN:
+            boxWidth = 28
+            boxHeight = 24
+            break
+        case .AVERAGE_SCREEN:
+            boxWidth = 30
+            boxHeight = 30
+            break
+        case .PLUS_SCREEN:
+            boxWidth = 36
+            boxHeight = 36
+            break
+        case .MAX_SCREEN:
+            boxWidth = 38
+            boxHeight = 38
+            break
+        }
     }
-    
+
     public var body: some View {
         Rectangle()
             .fill(givenColor)
-            .frame(width: 32, height: 32)
+            .frame(width: boxWidth, height: boxHeight)
             .border(showBorder ? Color.white : .clear, width: 2)
             .onTapGesture {
                 showBorder.toggle()
@@ -42,17 +63,17 @@ public struct ColorBox: View {
 
 public struct ColorDetailRow: View {
     private var selectedColorList: [Color]
-    
+
     @State private var isFirstColorCopied: Bool = false
     @State private var isSecondColorCopied: Bool = false
     @State private var isThirdColorCopied: Bool = false
     @State private var isForthColorCopied: Bool = false
     @State private var isFifthColorCopied: Bool = false
-    
+
     public init(selectedColorList: [Color]) {
         self.selectedColorList = selectedColorList
     }
-    
+
     public var body: some View {
         HStack {
             VStack {
@@ -72,7 +93,7 @@ public struct ColorDetailRow: View {
                             .stroke(Color.themePalette.primary, lineWidth: 1)
                             .fill(selectedColorList.count >= 1 ? selectedColorList[0] : Color.white)
                             .frame(width: 50, height: 50)
-                        
+
                         if selectedColorList.count >= 1 {
                             if isFirstColorCopied {
                                 VStack {
@@ -80,7 +101,7 @@ public struct ColorDetailRow: View {
                                         .resizable()
                                         .foregroundColor(Color.themePalette.secondary)
                                         .frame(width: 15, height: 15, alignment: .center)
-                                    
+
                                     Text("Copied")
                                         .font(.system(size: 8, weight: .light))
                                         .foregroundColor(Color.themePalette.secondary)
@@ -96,7 +117,7 @@ public struct ColorDetailRow: View {
                     .padding([.top, .leading, .trailing], 6)
                 })
             }
-            
+
             VStack {
                 Button(action: {
                     if selectedColorList.count >= 2 {
@@ -113,7 +134,7 @@ public struct ColorDetailRow: View {
                             .stroke(Color.themePalette.primary, lineWidth: 1)
                             .fill(selectedColorList.count >= 2 ? selectedColorList[1] : Color.white)
                             .frame(width: 50, height: 50)
-                        
+
                         if selectedColorList.count >= 2 {
                             if isSecondColorCopied {
                                 VStack {
@@ -121,7 +142,7 @@ public struct ColorDetailRow: View {
                                         .resizable()
                                         .foregroundColor(Color.themePalette.secondary)
                                         .frame(width: 15, height: 15, alignment: .center)
-                                    
+
                                     Text("Copied")
                                         .font(.system(size: 8, weight: .light))
                                         .foregroundColor(Color.themePalette.secondary)
@@ -137,7 +158,7 @@ public struct ColorDetailRow: View {
                     .padding([.top, .leading, .trailing], 6)
                 })
             }
-            
+
             VStack {
                 Button(action: {
                     if selectedColorList.count >= 3 {
@@ -154,7 +175,7 @@ public struct ColorDetailRow: View {
                             .stroke(Color.themePalette.primary, lineWidth: 1)
                             .fill(selectedColorList.count >= 3 ? selectedColorList[2] : Color.white)
                             .frame(width: 50, height: 50)
-                        
+
                         if selectedColorList.count >= 3 {
                             if isThirdColorCopied {
                                 VStack {
@@ -162,7 +183,7 @@ public struct ColorDetailRow: View {
                                         .resizable()
                                         .foregroundColor(Color.themePalette.secondary)
                                         .frame(width: 15, height: 15, alignment: .center)
-                                    
+
                                     Text("Copied")
                                         .font(.system(size: 8, weight: .light))
                                         .foregroundColor(Color.themePalette.secondary)
@@ -178,7 +199,7 @@ public struct ColorDetailRow: View {
                     .padding([.top, .leading, .trailing], 6)
                 })
             }
-            
+
             VStack {
                 Button(action: {
                     if selectedColorList.count >= 4 {
@@ -195,7 +216,7 @@ public struct ColorDetailRow: View {
                             .stroke(Color.themePalette.primary, lineWidth: 1)
                             .fill(selectedColorList.count >= 4 ? selectedColorList[3] : Color.white)
                             .frame(width: 50, height: 50)
-                        
+
                         if selectedColorList.count >= 4 {
                             if isForthColorCopied {
                                 VStack {
@@ -203,7 +224,7 @@ public struct ColorDetailRow: View {
                                         .resizable()
                                         .foregroundColor(Color.themePalette.secondary)
                                         .frame(width: 15, height: 15, alignment: .center)
-                                    
+
                                     Text("Copied")
                                         .font(.system(size: 8, weight: .light))
                                         .foregroundColor(Color.themePalette.secondary)
@@ -219,7 +240,7 @@ public struct ColorDetailRow: View {
                     .padding([.top, .leading, .trailing], 6)
                 })
             }
-            
+
             VStack {
                 Button(action: {
                     if selectedColorList.count >= 5 {
@@ -236,7 +257,7 @@ public struct ColorDetailRow: View {
                             .stroke(Color.themePalette.primary, lineWidth: 1)
                             .fill(selectedColorList.count >= 5 ? selectedColorList[4] : Color.white)
                             .frame(width: 50, height: 50)
-                        
+
                         if selectedColorList.count >= 5 {
                             if isFifthColorCopied {
                                 VStack {
@@ -244,7 +265,7 @@ public struct ColorDetailRow: View {
                                         .resizable()
                                         .foregroundColor(Color.themePalette.secondary)
                                         .frame(width: 15, height: 15, alignment: .center)
-                                    
+
                                     Text("Copied")
                                         .font(.system(size: 8, weight: .light))
                                         .foregroundColor(Color.themePalette.secondary)
@@ -266,13 +287,13 @@ public struct ColorDetailRow: View {
 }
 
 public struct ColorStrip: View {
-    
+
     private var stripColor: Color
-    
+
     public init(stripColor: Color) {
         self.stripColor = stripColor
     }
-    
+
     public var body: some View {
         HStack {
             HStack {
@@ -280,9 +301,9 @@ public struct ColorStrip: View {
                     .font(.system(size: 12, weight: .light))
                     .foregroundColor(stripColor.isHightLightColor ? Color.black : Color.white)
                     .padding([.leading], 10)
-                
+
                 Spacer()
-                
+
                 Text(ColorUtil.getHex(color: stripColor))
                     .textSelection(.enabled)
                     .font(.system(size: 14, weight: .medium))
@@ -297,14 +318,14 @@ public struct ColorStrip: View {
 }
 
 public struct ColorCountSelector: View {
-    
+
     @Binding var selectedCount: Int
     let options = [2, 5, 10, 15, 20, 25, 30]
-    
+
     public init (selectedCount: Binding<Int>) {
         self._selectedCount = selectedCount
     }
-    
+
     public var body: some View {
         HStack {
             Text("Select your Color")
@@ -312,7 +333,7 @@ public struct ColorCountSelector: View {
                 .foregroundColor(Color.themePalette.primary)
                 .padding(10)
             Spacer()
-            
+
             Menu {
                 ForEach(options, id: \.self) { option in
                     Button("\(option)", action: { selectedCount = option })
