@@ -31,6 +31,10 @@ public struct ColorBox: View {
             boxWidth = 30
             boxHeight = 30
             break
+        case .PRO_SCREEN:
+            boxWidth = 32
+            boxHeight = 32
+            break
         case .PLUS_SCREEN:
             boxWidth = 36
             boxHeight = 36

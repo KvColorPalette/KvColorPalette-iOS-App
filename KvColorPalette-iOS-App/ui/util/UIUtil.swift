@@ -16,6 +16,8 @@ public class UIUtil {
             return ScreenType.MINI_SCREEN
         } else if size.height <= 852 {
             return ScreenType.AVERAGE_SCREEN
+        } else if size.height <= 874 {
+            return ScreenType.PRO_SCREEN
         } else if size.height <= 932 {
             return ScreenType.PLUS_SCREEN
         } else if size.height <= 956 {
