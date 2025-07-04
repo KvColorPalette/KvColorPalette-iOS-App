@@ -30,6 +30,11 @@ struct DashboardTabView: View {
                         .tabItem {
                             Label("Theme Gen", systemImage: "theatermask.and.paintbrush")
                         }
+                    ColorBlendTab()
+                        .id(viewRefreshId)
+                        .tabItem {
+                            Label("Blend", systemImage: "lasso.badge.sparkles")
+                        }
                     SettingsTab(onChangeTheme: {
                         viewRefreshId = UUID()
                     })

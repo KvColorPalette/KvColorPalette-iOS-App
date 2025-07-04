@@ -37,8 +37,6 @@ public struct PalettePager: View {
                     ColorPaletteRow(givenColor: matPackage.matOrange, selectedColor: $selectedColor)
                 }
                 .padding()
-                
-                Spacer()
             }
             .padding([.leading, .trailing], 10)
             .padding(.top, -20)
