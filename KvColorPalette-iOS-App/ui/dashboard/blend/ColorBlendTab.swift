@@ -110,11 +110,18 @@ struct ColorBlendTab: View {
                 .padding(10)
                 
                 VStack {
-                    Text("Blended Color")
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundColor(Color.themePalette.primary)
-                        //.shadow(radius: Color.themePalette.shadow)
-                        .padding()
+                    VStack {
+                        Text("Blended Color")
+                            .font(.system(size: 12, weight: .bold))
+                            .foregroundColor(Color.themePalette.primary)
+                            .padding()
+                    }
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    .overlay( /// apply a rounded border
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.themePalette.primary, lineWidth: 1)
+                    )
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding()
