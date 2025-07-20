@@ -22,7 +22,7 @@ struct ColorBlendTab: View {
             VStack {
                 HeadingTitleView(titleText: "Color Blend")
                 
-                Text("Touch on the color box or type your color-hex on below to pick your primary color to generate color palette")
+                Text("Touch on the color boxes to pick your first and second color to see the generated blend color from selected colors. From the slider you can choose how bias is your blend color to first or second color you selected")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(Color.themePalette.primary)
                     .padding([.leading, .trailing, .bottom], 10)
