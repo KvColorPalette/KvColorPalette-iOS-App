@@ -5,7 +5,7 @@
 //  Created by Kavimal Wijewardana on 12/30/24.
 //
 import Foundation
-import SwiftUICore
+import SwiftUI
 
 public struct ColorItem {
     var id: String = UUID().uuidString

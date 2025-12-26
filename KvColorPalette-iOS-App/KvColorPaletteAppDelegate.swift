@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import SwiftUICore
+import SwiftUI
 import KvColorPalette_iOS
 
 @MainActor
